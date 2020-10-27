@@ -125,13 +125,13 @@ And then later you can call:
 
 \addtocounter{page}{0}
 
-\title{OPPSETT FOR LATEX \\
-      \large fag}
+\title{Project A20 \\
+      \large FYS-MENA4111}
 \date{\today \\
     \vspace{1mm}
-    \large Uke ..}
+    \large Week 44-}
 
-\author{Alexandra Jahr Kolstad}
+\author{Erlend Tiberg North \& Alexandra Jahr Kolstad}
 
 \maketitle
 
@@ -149,7 +149,7 @@ And then later you can call:
 
 \begin{center}
 
-{\Large\textbf{Abstrakt}} \label{sec:Abstrakt} \\
+{\Large\textbf{Abstract}} \label{sec:Abstract} \\
 
     \vspace{1cm}
 
@@ -167,165 +167,61 @@ And then later you can call:
 
 %---------------------------------------------------------------------------------
 
-\section{section}
+\textbf{Ting å gjøre:}
+\begin{itemize}
+    \item lage en mappe på saga for begge
+    \item skaffe POSCAR, jobfile og INCAR (de andre følger fra disse)
+    \item sjekke at den konvergerer (decent ENCUT og KPOINTS)
+    \item relaxe POSCAR og static etter relax POSCAR
+    \item total og relativ energi (fra static etter relax)
+    \item DOS og LDOS
+    \item bytte ut hydrogen i alkoholgruppen med lantanoidatomer (bestemme hvilket, Yb, Nd eller Tm (eller Y (obs, ikke lantanoid, er det mulig da?)))
+    \item båndgap
+    \item båndstruktur
+    \item romlig elektronstruktur; 3D-plot av ladningstetthet (VESTA)
+\end{itemize}
 
-\subsection{subsection}
+\vspace{1cm}
 
-\subsubsection{subsubsection}
+\textbf{Ting å ha i \LaTeX:}
+\begin{itemize}
+    \item abstrakt
+    \item kort introduksjon av materialet
+    \item kort om metode, valg av paramtere (CUTOFF, etc)
+    \item presentasjon av de viktigste resultatene
+    \item diskusjon av hvordan resultatene kan tolkes, f.eks. sammenligne til eksperimenter eller tidligere beregninger i litteraturen
+    \item konklusjon/oppsummering
+    \item kilder
+    \item appendix ?
+\end{itemize}
 
-\begin{python}
-    import numpy as np
+\vspace{1cm}
 
-    N = 100
+\textbf{\large{OBS: husk å lagre bilder for rapporten og presentasjonen mens man gjør beregningene}}
 
-    x = np.linspace(1, 100, N)
+\section{Introduction}  \label{sec:Introduction}
 
-    def f(x):
-        return x**2
+\vspace{1cm}
 
-    y = f(x)
+\section{Method}    \label{sec:Method}
 
-    print(y)
+\vspace{1cm}
 
+\section{Results}   \label{sec:Results}
 
-    test for cpp, men er nok bedre med den andre versjonen med lstlisting
+\vspace{1cm}
 
-    std::cout << "index, value\n";
-  for(int i = 0; i < n; i++){
-      std::cout << "    " << i << ", " << d_new[i] << std::endl;
-  }
+\section{Discussion}    \label{sec:Discussion}
 
-\end{python}
+\vspace{1cm}
 
-\iffalse
-\begin{lstlisting}[language = python] — må huske å ha den ekstra delen til farger osv.
-\end{lstlisting}
-\fi
-
-
-\begin{figure}[H]
-    \centering
-        \begin{tikzpicture}
-        \draw[black, thick, ->] (-3,0) -- (4,0) node[anchor=west] {$x$};
-        \draw[black, thick, ->] (0,-3) -- (0,3) node[anchor=south] {$\rho(x)$};
-        \draw[cyan, thick, |-|, densely dashed] (-0.2,2.3) -- (3,2.3) ;
-        \draw[cyan] (1.8,2.3) circle [radius = 0.01pt] node[anchor= south east] {$W$};
-        \draw[thick] (0,0)--(0,2)--(3,2)--(3,0)--(0,0);
-        \draw[text=cyan] (1,1.2)  node[anchor=north west] {$Q_s$};
-        \fill[black] (3,0) circle [radius = 1.5pt] ;
-        \draw[text=cyan] (3,0) node[anchor = north] {$x_{n0}$};
-        \draw[thick] (0,0)--(0,-2)--(-0.2,-2)--(-0.2,0)--(0,0);
-        \draw[text=cyan] (-1,-1)  node[anchor=north west] {$Q_m$};
-        \fill[black] (-0.2,0) circle [radius = 1.5pt] ;
-        \draw[text=cyan] (-0.2,0) node[anchor = south east] {$x_{p0}$};
-    \end{tikzpicture}
-    \caption{Ladningstetthet i deplesjonssonen for Schottkyovergangen.}
-    \label{fig:schottkyladningstetthet}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \resizebox{17cm}{11cm}{
-        \begin{tikzpicture}
-            \draw [blue, thick, decoration={markings, mark=at position 0.750 with {\arrow{>}}}, postaction={decorate}] (3,0) arc(0:180:3);
-            \draw [blue, thick, decoration={markings, mark=at position 0.250 with {\Huge \arrow{>}}}, postaction={decorate}] (3,0) arc(0:180:3);
-            \draw [red, thick, decoration={markings, mark=at position 0.250 with {\arrow{<}}}, postaction={decorate}] (-1.10,0) arc(0:180:0.4cm);
-            \draw [red, thick, decoration={markings, mark=at position 0.250 with {\arrow{<}}}, postaction={decorate}] (1.9,0) arc(0:180:0.4cm);
-            \draw[text=blue] (0,3) node[anchor=north west] {$C_\rho$};
-            \draw [->](-5,0) -- (5,0)  node[anchor=west] {$x$};
-            \draw [->](0,-2) -- (0,5)  node[anchor=north east] {$y$};
-            \fill[black] (3,0) circle [radius = 1.5pt] ;
-            \draw [red, thick, decoration={markings, mark=at position 0.5 with {\arrow{>}}}, postaction={decorate}](-1.114,0) -- (1.114,0)  node[midway, anchor= south west] {$\gamma_\rho$};
-            \draw [red, thick](-3,0) -- (-1.886,0);
-            \draw [red, thick](3,0) -- (1.886,0);
-
-            \fill[black] (3,0) circle [radius = 1.5pt] ;
-            \draw[text=black] (3,0) node[anchor = north] {$1$};
-            \fill[black] (-3,0) circle [radius = 1.5pt] ;
-            \draw[text=black] (-3,0) node[anchor = north] {$-1$};
-            \draw[black] (0,1.5) node[cross] {};
-            \draw[text=black] (0,1.5) node[anchor = west] {$\frac{1}{2}i$};
-            \draw[black] (-1.5,0) node[cross] {};
-            \draw[text=black] (-1.5,0) node[anchor = north] {$-\frac{1}{2}$};
-            \draw[black] (1.5,0) node[cross] {};
-            \draw[text=black] (1.5,0) node[anchor = north] {$\frac{1}{2}$};
-        \end{tikzpicture} }
-    \caption{Konturen til integralet.}
-    \label{fig:kontur}
-\end{figure}
-
-\begin{figure}[ht]
-    \centering
-    \begin{tikzpicture}
-        \draw (-4,0) -- (-2,0);
-        \draw (2,0) -- (4,0);
-        \draw [fill = blue!10, draw = white] (-4,-5) rectangle(-2,0);
-        \draw [fill = blue!10, draw = white] (2,-5) rectangle(4,0);
-        \draw [->](0,-5) -- (0,2) node[anchor = east] {$V(x)$};
-        \draw [->] (-4,0) -- (6,0) node[below] {$x$} node[very near start, below] {I} node[midway,below] {II} node[near end,below] {III};
-        \draw[very thick] (-2,-5) -- (2,-5) node[near end, anchor = north] {$-V_0$};
-        \draw[very thick] (-2,0) -- (-2,-5) node[below] {$-a$};
-        \draw[very thick] (2,0) -- (2,-5) node[below] {$a$};
-        \draw[very thick] (-4,0) -- (-2,0);
-        \draw[very thick] (2,0) -- (4,0);
-        \filldraw[black] (-3,1) circle(3pt);
-        \draw[thick, ->] (-3,1) -- (1,1) node[midway,anchor = south] {$E$};
-        \draw[very thin] (-0.2,0) circle(0.1pt) node[above] {0};
-    \end{tikzpicture}
-    \caption{Figur over potensialet for oppgave {\bf 4a)}.}
-    \label{fig:4a}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    %\resizebox{15cm}{17cm}{
-        \begin{tikzpicture}
-            \draw [->](-5,0) -- (5,0)  node[anchor=west] {$x$};
-            \draw [->](0,-2) -- (0,4)  node[anchor=north east] {$y$};
-            \fill[black] (0,0) circle [radius = 3pt] ;
-            \fill[black] (3,0) circle [radius = 3pt] ;
-            \draw[text=black] (3,0) node[anchor = north] {$-q$};
-            \fill[black] (-3,0) circle [radius = 3pt] ;
-            \draw[text=black] (-3,0) node[anchor = north] {$-q$};
-            \draw[text=black] (0,0) node[anchor = north west] {$2q$};
-            \draw[text=black] (3,0) node[anchor = south] {$(a,0,0)$};
-            \draw[text=black] (-3,0) node[anchor = south] {$(-a,0,0)$};
-        \end{tikzpicture} %}
-    \caption{CO$_2$-molekyl i $xy$-planet. }
-    \label{fig:elmag}
-\end{figure}
-
-
-\iffalse
-\begin{figure}[H]
-    \centering
-    \includegraphics[width = 11cm]{bilder/L20um_mosfet_litografi2.png}
-    \caption{ Diodestrømmen gitt som funksjon av spenningen over dioden. }
-    \label{fig:mosfet-20um-litografi2}
-\end{figure}
-
-
-\begin{table}[ht]
-    \centering
-    \caption{Forventet og målt resistivitet for Schottkydiodene fra firepunktsmålingen.}
-    \vspace{2mm}
-    \label{tab:schottkyresistivitet}
-    \begin{tabular}{|c|c|}
-        \hline
-        Forventet resistivitet $\rho$ [$\Omega$cm] & Målt resistivitet $\rho$ [$\Omega$cm]  \\
-        \hline \hline
-        1 - 10 & 6.975 \\
-        \hline
-    \end{tabular} \\
-    \hspace{0pt}\\
-\end{table}
-\fi
+\section{Conclusion}    \label{sec:Conclusion}
 
 
 %--------------------- References --------------------------------------------
 \vspace{1cm}
 
-\section{Kilder} \label{sec:Kilder}
+\section{References} \label{sec:References}
 
     \begin{thebibliography}{}
 
@@ -339,7 +235,153 @@ And then later you can call:
 %------------------ Appendix ------------------------------------
 
 \appendix
-\section{appendix}
+\section{Appendix 1}
+
+    \iffalse
+    \begin{python}
+        import numpy as np
+
+        N = 100
+
+        x = np.linspace(1, 100, N)
+
+        def f(x):
+            return x**2
+
+        y = f(x)
+
+        print(y)
+
+
+        test for cpp, men er nok bedre med den andre versjonen med lstlisting
+
+        std::cout << "index, value\n";
+      for(int i = 0; i < n; i++){
+          std::cout << "    " << i << ", " << d_new[i] << std::endl;
+      }
+
+    \end{python}
+
+    \begin{lstlisting}[language = python] — må huske å ha den ekstra delen til farger osv.
+    \end{lstlisting}
+    \fi
+
+    \iffalse
+    \begin{figure}[H]
+        \centering
+            \begin{tikzpicture}
+            \draw[black, thick, ->] (-3,0) -- (4,0) node[anchor=west] {$x$};
+            \draw[black, thick, ->] (0,-3) -- (0,3) node[anchor=south] {$\rho(x)$};
+            \draw[cyan, thick, |-|, densely dashed] (-0.2,2.3) -- (3,2.3) ;
+            \draw[cyan] (1.8,2.3) circle [radius = 0.01pt] node[anchor= south east] {$W$};
+            \draw[thick] (0,0)--(0,2)--(3,2)--(3,0)--(0,0);
+            \draw[text=cyan] (1,1.2)  node[anchor=north west] {$Q_s$};
+            \fill[black] (3,0) circle [radius = 1.5pt] ;
+            \draw[text=cyan] (3,0) node[anchor = north] {$x_{n0}$};
+            \draw[thick] (0,0)--(0,-2)--(-0.2,-2)--(-0.2,0)--(0,0);
+            \draw[text=cyan] (-1,-1)  node[anchor=north west] {$Q_m$};
+            \fill[black] (-0.2,0) circle [radius = 1.5pt] ;
+            \draw[text=cyan] (-0.2,0) node[anchor = south east] {$x_{p0}$};
+        \end{tikzpicture}
+        \caption{Ladningstetthet i deplesjonssonen for Schottkyovergangen.}
+        \label{fig:schottkyladningstetthet}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \resizebox{17cm}{11cm}{
+            \begin{tikzpicture}
+                \draw [blue, thick, decoration={markings, mark=at position 0.750 with {\arrow{>}}}, postaction={decorate}] (3,0) arc(0:180:3);
+                \draw [blue, thick, decoration={markings, mark=at position 0.250 with {\Huge \arrow{>}}}, postaction={decorate}] (3,0) arc(0:180:3);
+                \draw [red, thick, decoration={markings, mark=at position 0.250 with {\arrow{<}}}, postaction={decorate}] (-1.10,0) arc(0:180:0.4cm);
+                \draw [red, thick, decoration={markings, mark=at position 0.250 with {\arrow{<}}}, postaction={decorate}] (1.9,0) arc(0:180:0.4cm);
+                \draw[text=blue] (0,3) node[anchor=north west] {$C_\rho$};
+                \draw [->](-5,0) -- (5,0)  node[anchor=west] {$x$};
+                \draw [->](0,-2) -- (0,5)  node[anchor=north east] {$y$};
+                \fill[black] (3,0) circle [radius = 1.5pt] ;
+                \draw [red, thick, decoration={markings, mark=at position 0.5 with {\arrow{>}}}, postaction={decorate}](-1.114,0) -- (1.114,0)  node[midway, anchor= south west] {$\gamma_\rho$};
+                \draw [red, thick](-3,0) -- (-1.886,0);
+                \draw [red, thick](3,0) -- (1.886,0);
+
+                \fill[black] (3,0) circle [radius = 1.5pt] ;
+                \draw[text=black] (3,0) node[anchor = north] {$1$};
+                \fill[black] (-3,0) circle [radius = 1.5pt] ;
+                \draw[text=black] (-3,0) node[anchor = north] {$-1$};
+                \draw[black] (0,1.5) node[cross] {};
+                \draw[text=black] (0,1.5) node[anchor = west] {$\frac{1}{2}i$};
+                \draw[black] (-1.5,0) node[cross] {};
+                \draw[text=black] (-1.5,0) node[anchor = north] {$-\frac{1}{2}$};
+                \draw[black] (1.5,0) node[cross] {};
+                \draw[text=black] (1.5,0) node[anchor = north] {$\frac{1}{2}$};
+            \end{tikzpicture} }
+        \caption{Konturen til integralet.}
+        \label{fig:kontur}
+    \end{figure}
+
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}
+            \draw (-4,0) -- (-2,0);
+            \draw (2,0) -- (4,0);
+            \draw [fill = blue!10, draw = white] (-4,-5) rectangle(-2,0);
+            \draw [fill = blue!10, draw = white] (2,-5) rectangle(4,0);
+            \draw [->](0,-5) -- (0,2) node[anchor = east] {$V(x)$};
+            \draw [->] (-4,0) -- (6,0) node[below] {$x$} node[very near start, below] {I} node[midway,below] {II} node[near end,below] {III};
+            \draw[very thick] (-2,-5) -- (2,-5) node[near end, anchor = north] {$-V_0$};
+            \draw[very thick] (-2,0) -- (-2,-5) node[below] {$-a$};
+            \draw[very thick] (2,0) -- (2,-5) node[below] {$a$};
+            \draw[very thick] (-4,0) -- (-2,0);
+            \draw[very thick] (2,0) -- (4,0);
+            \filldraw[black] (-3,1) circle(3pt);
+            \draw[thick, ->] (-3,1) -- (1,1) node[midway,anchor = south] {$E$};
+            \draw[very thin] (-0.2,0) circle(0.1pt) node[above] {0};
+        \end{tikzpicture}
+        \caption{Figur over potensialet for oppgave {\bf 4a)}.}
+        \label{fig:4a}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        %\resizebox{15cm}{17cm}{
+            \begin{tikzpicture}
+                \draw [->](-5,0) -- (5,0)  node[anchor=west] {$x$};
+                \draw [->](0,-2) -- (0,4)  node[anchor=north east] {$y$};
+                \fill[black] (0,0) circle [radius = 3pt] ;
+                \fill[black] (3,0) circle [radius = 3pt] ;
+                \draw[text=black] (3,0) node[anchor = north] {$-q$};
+                \fill[black] (-3,0) circle [radius = 3pt] ;
+                \draw[text=black] (-3,0) node[anchor = north] {$-q$};
+                \draw[text=black] (0,0) node[anchor = north west] {$2q$};
+                \draw[text=black] (3,0) node[anchor = south] {$(a,0,0)$};
+                \draw[text=black] (-3,0) node[anchor = south] {$(-a,0,0)$};
+            \end{tikzpicture} %}
+        \caption{CO$_2$-molekyl i $xy$-planet. }
+        \label{fig:elmag}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{bilder/L20um_mosfet_litografi2.png}
+        \caption{ Diodestrømmen gitt som funksjon av spenningen over dioden. }
+        \label{fig:mosfet-20um-litografi2}
+    \end{figure}
+
+
+    \begin{table}[ht]
+        \centering
+        \caption{Forventet og målt resistivitet for Schottkydiodene fra firepunktsmålingen.}
+        \vspace{2mm}
+        \label{tab:schottkyresistivitet}
+        \begin{tabular}{|c|c|}
+            \hline
+            Forventet resistivitet $\rho$ [$\Omega$cm] & Målt resistivitet $\rho$ [$\Omega$cm]  \\
+            \hline \hline
+            1 - 10 & 6.975 \\
+            \hline
+        \end{tabular} \\
+        \hspace{0pt}\\
+    \end{table}
+    \fi
 
 
 %---------------- Slutten av dokumentet ---------------------------------------
