@@ -1,3 +1,5 @@
+cd ../../projects/nn9989k/quinizarin_AJK_ETN/
+
 login-1:quinizarin_AJK_ETN$ emacs quinizarin.mol
 
 6688
