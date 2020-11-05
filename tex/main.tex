@@ -13,6 +13,8 @@
 \usepackage{textcomp}
 \usepackage{mathrsfs}   %For å få fancy E til bildene
 
+\usepackage{amssymb} %Fra Erlend for å bruke hakemerke?? Vet egt. ikke
+
 %Definerer hyperlinker og dens farger
 \usepackage{hyperref}
 \hypersetup{
@@ -166,6 +168,15 @@ And then later you can call:
 \vspace{1cm}
 
 %---------------------------------------------------------------------------------
+
+\iffalse
+\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} I attended the lecture.\\
+\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.93em}} I did not attend the lecture.
+\fi
+
+\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} lage en mappe på saga for begge\\
+\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} skaffe POSCAR, jobfile og INCAR (de andre følger fra disse)\\
+\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.93em}} sjekke at den konvergerer (decent ENCUT og KPOINTS)\\
 
 \textbf{Ting å gjøre:}
 \begin{itemize}
