@@ -169,24 +169,15 @@ And then later you can call:
 
 %---------------------------------------------------------------------------------
 
-\iffalse
-\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} I attended the lecture.\\
-\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.93em}} I did not attend the lecture.
-\fi
-
-\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} lage en mappe på saga for begge\\
-\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} skaffe POSCAR, jobfile og INCAR (de andre følger fra disse)\\
-\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$} sjekke at den konvergerer (decent ENCUT og KPOINTS)\\
-
 \textbf{Ting å gjøre:}
 \begin{itemize}
     \item lage en mappe på saga for begge
-    \subitem done
+    \subitem \textbf{done}
     \item skaffe POSCAR, jobfile og INCAR (de andre følger fra disse)
-    \subitem done
+    \subitem \textbf{done}
     \item sjekke at den konvergerer (decent ENCUT og KPOINTS)
-    \subitem done
-    \subitem The data shows that we should use 350eV for ENCUT as that is the 1st job with a difference less than 3meV.
+    \subitem \textbf{done}
+    \subitem The data shows that we should use 450eV for ENCUT as that is the 1st job with a difference less than 3meV.
     \subitem For k-density we see that even the lowest value, 1.0, is within 3 meV (1.0 gives around 1.75 meV), so this can be used. However, the data shows that 3.0 is below 1 meV, with 4.0 being identical in energy to 5.0. This can possibly be discussed in group, but 1.0 should technically be enough for k-density.
     \item relaxe POSCAR og static etter relax POSCAR
     \item total og relativ energi (fra static etter relax)
