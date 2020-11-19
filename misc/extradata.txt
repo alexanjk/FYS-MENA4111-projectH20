@@ -161,3 +161,8 @@ LWAVE  = .FALSE.   ! Write WAVECAR?
 
 ! Memory handling
 NPAR    = 4        ! Should be ~sqrt(cpus)
+
+BÅNDGAP basic_quinizarin
+login-3:staticafterrelax$ bandgap OUTCAR
+Gap     Band#   VBM     CBM     VBM-occ CBM-occ File
+  1.5935   44  -5.3133  -3.7198    2.00    0.00 OUTCAR
