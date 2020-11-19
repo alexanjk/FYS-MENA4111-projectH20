@@ -1,0 +1,163 @@
+cd ../../projects/nn9989k/quinizarin_AJK_ETN/
+
+login-1:quinizarin_AJK_ETN$ emacs quinizarin.mol
+
+6688
+  -OEChem-10272014433D
+
+ 26 28  0     0  0  0  0  0  0999 V2000
+    2.2748   -2.7581    0.0006 O
+    2.2748    2.7582   -0.0003 O
+   -0.3077   -2.6718   -0.0013 O
+   -0.3081    2.6718    0.0000 O
+    0.9921   -0.6982   -0.0004 C
+    0.9920    0.6983   -0.0003 C
+   -1.5540   -0.6983   -0.0001 C
+   -1.5540    0.6982   -0.0004 C
+   -0.2810   -1.4475    0.0000 C
+   -0.2810    1.4475   -0.0007 C
+    2.2056   -1.3964   -0.0001 C
+    2.2055    1.3965    0.0003 C
+   -2.7675   -1.3965    0.0004 C
+   -2.7676    1.3964   -0.0002 C
+    3.4125   -0.6967    0.0005 C
+    3.4126    0.6967    0.0007 C
+   -3.9745   -0.6968    0.0008 C
+   -3.9746    0.6967    0.0005 C
+   -2.7962   -2.4828    0.0006 H
+   -2.7963    2.4827   -0.0004 H
+    4.3637   -1.2231    0.0008 H
+    4.3585    1.2320    0.0011 H
+   -4.9156   -1.2392    0.0013 H
+   -4.9157    1.2390    0.0008 H
+    3.2064   -3.0372    0.0009 H
+    1.3876    3.1475   -0.0017 H
+
+
+login-1:quinizarin_AJK_ETN$ more POSCAR_si_cluster_from_lab5
+Si_cluster
+ 1
+  17.4310100 0.0000000 0.0000000
+  0.0000000 17.4310100 0.0000000
+  0.0000000 0.0000000 17.4310100
+ Si
+ 14
+Cartesian
+  0.0000000 0.0000000 0.0000000
+  2.7155050 2.7155050 0.0000000
+  1.3577525 1.3577525 1.3577525
+  4.0732575 4.0732575 1.3577525
+  0.0000000 2.7155050 2.7155050
+  2.7155050 0.0000000 2.7155050
+  1.3577525 4.0732575 4.0732575
+  4.0732575 1.3577525 4.0732575
+  2.7155050 2.7155050 5.4310100
+  2.7155050 5.4310100 2.7155050
+  0.0000000 5.4310100 5.4310100
+  5.4310100 2.7155050 2.7155050
+  5.4310100 0.0000000 5.4310100
+  5.4310100 5.4310100 0.0000000
+
+
+quinizarin POSCAR
+
+Quinizarin
+ 1
+  17.4310100 0.0000000 0.0000000
+  0.0000000 17.4310100 0.0000000
+  0.0000000 0.0000000 17.4310100
+ O C H
+ 4 14 8
+Cartesian
+  2.2748   -2.7581    0.0006
+  2.2748    2.7582   -0.0003
+  -0.3077   -2.6718   -0.0013
+  -0.3081    2.6718    0.0000
+  0.9921   -0.6982   -0.0004
+  0.9920    0.6983   -0.0003
+  -1.5540   -0.6983   -0.0001
+  -1.5540    0.6982   -0.0004
+  -0.2810   -1.4475    0.0000
+  -0.2810    1.4475   -0.0007
+  2.2056   -1.3964   -0.0001
+  2.2055    1.3965    0.0003
+  -2.7675   -1.3965    0.0004
+  -2.7676    1.3964   -0.0002
+  3.4125   -0.6967    0.0005
+  3.4126    0.6967    0.0007
+  -3.9745   -0.6968    0.0008
+  -3.9746    0.6967    0.0005
+  -2.7962   -2.4828    0.0006
+  -2.7963    2.4827   -0.0004
+  4.3637   -1.2231    0.0008
+  4.3585    1.2320    0.0011
+  -4.9156   -1.2392    0.0013
+  -4.9157    1.2390    0.0008
+  3.2064   -3.0372    0.0009
+  1.3876    3.1475   -0.0017
+
+
+______________________________
+
+login-3:energy_convergence$ vaspout */OUTCAR
+MxForce	Drift	Pressure	TOTEN   	Filename
+3.1590	0.0551	   -9.83	-183.124011	300/OUTCAR
+3.3195	0.1055	   -2.83	-182.830540	350/OUTCAR
+3.3444	0.0136	    0.22	-182.614014	400/OUTCAR
+3.3336	0.0125	    1.39	-182.502132	450/OUTCAR
+3.3159	0.1564	    1.71	-182.455218	500/OUTCAR
+3.3162	0.0059	    1.67	-182.482638	550/OUTCAR
+3.3135	0.0074	    1.60	-182.521546	600/OUTCAR
+3.3117	0.0241	    1.54	-182.565222	650/OUTCAR
+3.3122	0.0110	    1.56	-182.602260	700/OUTCAR
+3.3151	0.0455	    1.61	-182.631283	750/OUTCAR
+3.3113	0.0615	    1.64	-182.648665	800/OUTCAR
+3.3123	0.0206	    1.67	-182.654639	850/OUTCAR
+3.3097	0.0516	    1.69	-182.658060	900/OUTCAR
+
+login-3:kpoints_convergence$ vaspout */OUTCAR
+MxForce	Drift	Pressure	TOTEN   	Filename
+2.7965	0.8783	  -23.58	-182.576478	1/OUTCAR
+2.7965	0.8783	  -23.58	-182.576478	2/OUTCAR
+2.7965	0.8783	  -23.58	-182.576478	3/OUTCAR
+2.7965	0.8783	  -23.58	-182.576478	4/OUTCAR
+2.7965	0.8783	  -23.58	-182.576478	5/OUTCAR
+2.7965	0.8783	  -23.58	-182.576478	6/OUTCAR
+
+______________________________________________
+
+login-1:staticafterrelax$ vaspout OUTCAR
+MxForce	Drift	Pressure	TOTEN   	Filename
+0.0400	0.0500	   -0.49	-182.881276	OUTCAR
+
+_________________________________________________
+
+INCAR for Nd
+
+login-1:relax_new$ more INCAR
+INCAR for ionic relaxation
+
+! Electronic relaxation
+ALGO   = Fast      ! Algorithm for electronic relaxation
+NELMIN = 4         ! Minimum # of electronic steps
+NELM   = 300       ! Max # of electronic steps (added by ETN 13.11.2020)
+EDIFF  = 1E-5      ! Accuracy for electronic groundstate
+ENCUT  = 450       ! Cut-off energy for plane wave expansion
+PREC   = Normal    ! Low/Normal/Accurate
+LREAL  = Auto      ! Projection in reciprocal space?
+ISMEAR = 0         ! Smearing of partial occupancies.
+SIGMA  = 0.2       ! Smearing width
+ISPIN  = 1         ! Spin polarization?
+
+! Ionic relaxation
+NSW    = 50        ! Max number of ionic steps
+EDIFFG = -0.05     ! Tolerance for ions
+IBRION = 1         ! Algorithm for ions. 0: MD 1: QN/DIIS 2: CG
+ISIF   = 2         ! Relaxation. 2: ions 3: ions+cell
+MAXMIX = 80        ! Keep dielectric function between ionic movements
+
+! Output options
+LWAVE  = .FALSE.   ! Write WAVECAR?
+
+! Memory handling
+NPAR    = 4        ! Should be ~sqrt(cpus)
