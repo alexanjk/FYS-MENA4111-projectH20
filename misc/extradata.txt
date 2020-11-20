@@ -132,37 +132,19 @@ MxForce	Drift	Pressure	TOTEN   	Filename
 
 _________________________________________________
 
-INCAR for Nd
+BÅNDGAP
 
-login-1:relax_new$ more INCAR
-INCAR for ionic relaxation
-
-! Electronic relaxation
-ALGO   = Fast      ! Algorithm for electronic relaxation
-NELMIN = 4         ! Minimum # of electronic steps
-NELM   = 300       ! Max # of electronic steps (added by ETN 13.11.2020)
-EDIFF  = 1E-5      ! Accuracy for electronic groundstate
-ENCUT  = 450       ! Cut-off energy for plane wave expansion
-PREC   = Normal    ! Low/Normal/Accurate
-LREAL  = Auto      ! Projection in reciprocal space?
-ISMEAR = 0         ! Smearing of partial occupancies.
-SIGMA  = 0.2       ! Smearing width
-ISPIN  = 1         ! Spin polarization?
-
-! Ionic relaxation
-NSW    = 50        ! Max number of ionic steps
-EDIFFG = -0.05     ! Tolerance for ions
-IBRION = 1         ! Algorithm for ions. 0: MD 1: QN/DIIS 2: CG
-ISIF   = 2         ! Relaxation. 2: ions 3: ions+cell
-MAXMIX = 80        ! Keep dielectric function between ionic movements
-
-! Output options
-LWAVE  = .FALSE.   ! Write WAVECAR?
-
-! Memory handling
-NPAR    = 4        ! Should be ~sqrt(cpus)
-
-BÅNDGAP basic_quinizarin
+basic_quinizarin
 login-3:staticafterrelax$ bandgap OUTCAR
 Gap     Band#   VBM     CBM     VBM-occ CBM-occ File
   1.5935   44  -5.3133  -3.7198    2.00    0.00 OUTCAR
+
+Yb k4
+login-1:k4$ bandgap OUTCAR
+Gap	Band#	VBM	CBM	VBM-occ	CBM-occ	File
+  0.2947   67  -2.8479  -2.5532    2.00    0.00 OUTCAR
+
+Y k4
+login-1:k4$ bandgap OUTCAR
+Gap	Band#	VBM	CBM	VBM-occ	CBM-occ	File
+ -0.0001   54  -3.3080  -3.3081    2.01    0.00 OUTCAR
