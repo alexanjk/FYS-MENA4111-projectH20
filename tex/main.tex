@@ -184,6 +184,7 @@ And then later you can call:
     \item total og relativ energi (fra static etter relax)
     \subitem \textbf{done}
     \item DOS (båndgap) og LDOS (båndstruktur)
+    \subitem \textbf{done}
     \item romlig elektronstruktur; 3D-plot av ladningstetthet (VESTA)
     \item bytte ut hydrogen i alkoholgruppen med lantanoidatomer (Yb, Nd, Tm og Y)
     \item relaxe POSCAR og static etter relax POSCAR
@@ -265,7 +266,315 @@ And then later you can call:
 %------------------ Appendix ------------------------------------
 
 \appendix
-\section{Appendix 1}
+
+\section{Convergence energy}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/convergence_energy.png}
+      \caption{. }
+      \label{fig:convergence_energy.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/convergence_energy_difference.png}
+      \caption{. }
+      \label{fig:convergence_energy_difference.png}
+  \end{figure}
+
+\vspace{1cm}
+
+\section{Convergence kpoints}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/convergence_kpoints.png}
+      \caption{. }
+      \label{fig:convergence_kpoints.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/convergence_kpoints_difference.png}
+      \caption{. }
+      \label{fig:convergence_kpoints_difference.png}
+  \end{figure}
+
+\vspace{1cm}
+
+\section{DOS-bilder}
+
+  \iffalse
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_staticbefore_CONTCAR.png}
+      \caption{. }
+      \label{fig:DOS_staticbefore_CONTCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_staticbefore_CHGCAR.png}
+      \caption{. }
+      \label{fig:DOS_staticbefore_CHGCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_relax_CONTCAR.png}
+      \caption{. }
+      \label{fig:DOS_relax_CONTCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_relax_CHGCAR.png}
+      \caption{. }
+      \label{fig:DOS_relax_CHGCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_staticafter_CONTCAR.png}
+      \caption{. }
+      \label{fig:DOS_staticafter_CONTCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_staticafter_CHGCAR.png}
+      \caption{. }
+      \label{fig:DOS_staticafter_CHGCAR}
+  \end{figure}
+  \fi
+
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_k4_TDOS_1.png}
+      \caption{. }
+      \label{fig:DOS_k4_TDOS_1}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_k4_TDOS_2.png}
+      \caption{. }
+      \label{fig:DOS_k4_TDOS_2}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_k4_LDOS25_1.png}
+      \caption{.}
+      \label{fig:DOS_k4_LDOS25_1}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_k4_LDOS25_2.png}
+      \caption{. }
+      \label{fig:DOS_k4_LDOS25_2}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_k4_LDOS26_1.png}
+      \caption{. }
+      \label{fig:DOS_k4_LDOS26_1}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/DOS_k4_LDOS26_2.png}
+      \caption{. }
+      \label{fig:DOS_k4_LDOS26_2}
+  \end{figure}
+
+\vspace{1cm}
+
+\section{Y-bilder}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_staticbefore_CONTCAR.png}
+      \caption{. }
+      \label{fig:Y_staticbefore_CONTCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_staticbefore_CHGCAR.png}
+      \caption{. }
+      \label{fig:Y_staticbefore_CHGCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_relax_CONTCAR.png}
+      \caption{. }
+      \label{fig:Y_relax_CONTCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_relax_CHGCAR.png}
+      \caption{. }
+      \label{fig:Y_relax_CHGCAR}
+  \end{figure}
+
+  \iffalse
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_staticafter_CONTCAR.png}
+      \caption{. }
+      \label{fig:Y_staticafter_CONTCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_staticafter_CHGCAR.png}
+      \caption{. }
+      \label{fig:Y_staticafter_CHGCAR}
+  \end{figure}
+  \fi
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_k4_TDOS_1.png}
+      \caption{. }
+      \label{fig:Y_k4_TDOS_1.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_k4_TDOS_2.png}
+      \caption{. }
+      \label{fig:Y_k4_TDOS_2.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_k4_LDOS25_1.png}
+      \caption{. }
+      \label{fig:Y_k4_LDOS25_1.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_k4_LDOS25_2.png}
+      \caption{. }
+      \label{fig:Y_k4_LDOS25_2.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_k4_LDOS26_1.png}
+      \caption{. }
+      \label{fig:Y_k4_LDOS26_1.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Y_k4_LDOS26_2.png}
+      \caption{. }
+      \label{fig:Y_k4_LDOS26_2.png}
+  \end{figure}
+
+\vspace{1cm}
+
+\section{Yb-bilder}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_staticbefore_CONTCAR.png}
+      \caption{. }
+      \label{fig:Yb_staticbefore_CONTCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_staticbefore_CHGCAR.png}
+      \caption{. }
+      \label{fig:Yb_staticbefore_CHGCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_relax_CONTCAR.png}
+      \caption{. }
+      \label{fig:Yb_relax_CONTCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_relax_CHGCAR.png}
+      \caption{. }
+      \label{fig:Yb_relax_CHGCAR}
+  \end{figure}
+
+  \iffalse
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_staticafter_CONTCAR.png}
+      \caption{. }
+      \label{fig:Yb_staticafter_CONTCAR}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_staticafter_CHGCAR.png}
+      \caption{. }
+      \label{fig:Yb_staticafter_CHGCAR}
+  \end{figure}
+  \fi
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_k4_TDOS_1.png}
+      \caption{. }
+      \label{fig:Yb_k4_TDOS_1.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_k4_TDOS_2.png}
+      \caption{. }
+      \label{fig:Yb_k4_TDOS_2.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_k4_LDOS25_1.png}
+      \caption{. }
+      \label{fig:Yb_k4_LDOS25_1.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_k4_LDOS25_2.png}
+      \caption{. }
+      \label{fig:Yb_k4_LDOS25_2.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_k4_LDOS26_1.png}
+      \caption{. }
+      \label{fig:Yb_k4_LDOS26_1.png}
+  \end{figure}
+
+  \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/Yb_k4_LDOS26_2.png}
+      \caption{. }
+      \label{fig:Yb_k4_LDOS26_2.png}
+  \end{figure}
+
+\vspace{1cm}
+
+\section{Appendix 2}
 
     \iffalse
     \begin{python}
