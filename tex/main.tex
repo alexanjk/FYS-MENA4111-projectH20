@@ -131,7 +131,7 @@ And then later you can call:
       \large FYS-MENA4111}
 \date{\today \\
     \vspace{1mm}
-    \large Week 44-}
+    \large Week 44-48}
 
 \author{Erlend Tiberg North \& Alexandra Jahr Kolstad}
 
@@ -185,14 +185,20 @@ And then later you can call:
     \subitem \textbf{done}
     \item total og relativ energi (fra static etter relax)
     \subitem \textbf{done}
-    \item DOS (båndgap) og LDOS (båndstruktur)
+    \item DOS og LDOS
     \subitem \textbf{done}
     \item romlig elektronstruktur; 3D-plot av ladningstetthet (VESTA)
+    \subitem \textbf{done}
     \item bytte ut hydrogen i alkoholgruppen med lantanoidatomer (Yb, Nd, Tm og Y)
+    \subitem \textbf{done}
     \item relaxe POSCAR og static etter relax POSCAR
+    \subitem \textbf{done}
     \item total og relativ energi (fra static etter relax)
-    \item DOS (båndgap) og LDOS (båndstruktur)
+    \subitem \textbf{done}
+    \item DOS og LDOS
+    \subitem \textbf{done}
     \item romlig elektronstruktur; 3D-plot av ladningstetthet (VESTA)
+    \subitem \textbf{done}
 \end{itemize}
 
 \vspace{1cm}
@@ -200,10 +206,15 @@ And then later you can call:
 \textbf{Ting å ha i \LaTeX:}
 \begin{itemize}
     \item abstrakt
+    \subitem \textbf{done}
     \item kort introduksjon av materialet
+    \subitem \textbf{done}
     \item kort om metode, valg av paramtere (CUTOFF, etc)
+    \subitem \textbf{done}
     \item presentasjon av de viktigste resultatene
+    \subitem \textbf{WIP}
     \item diskusjon av hvordan resultatene kan tolkes, f.eks. sammenligne til eksperimenter eller tidligere beregninger i litteraturen
+    \subitem \textbf{WIP}
     \item konklusjon/oppsummering
     \item kilder
     \item appendix ?
@@ -215,59 +226,70 @@ And then later you can call:
 
 \section{Introduction}  \label{sec:Introduction}
 
-    Photons can be used for many things. However, not all photons are created equal. They come in many different energies, and not all energies are as simple to absorb. A way to increase the effieincy of photon-absorbing materials is by modifying it so that it can absorb photons with a low energy, collect that energy, and re-emit the photon with higher energy. This is known as up-conversion and has many uses. One use is to increase the efficiency of solar panels by allowing it to collect more of the sunlight, where the up-conversion system can be a thin-film on the top of the panel. A different use is to increase the energy to the point where the emitted photon can become ionizing and work as a bacteria or virus killer.\\
+    Photons can be used for many things. However, not all photons are created equal. They come in many different energies, and not all energies are as simple to absorb. A way to increase the efficiency of photon-absorbing materials is by modifying it so that it can absorb photons with a low energy, collect that energy, and re-emit the photon with higher energy. This is known as up-conversion and has many uses. One use is to increase the efficiency of solar panels by allowing it to collect more of the sunlight, where the up-conversion system can be a thin-film on the top of the panel. A different use is to increase the energy to the point where the emitted photon can become ionizing and work as a bacteria or virus killer.\\
 
     Up-conversion is a phenomenon where incoming photons are re-emitted with a higher energy than they entered with. The photons excite electrons in a material, and by conduction of those electrons they can move to other atoms, where they are further excited. The electron ends up in a high energy state and de-excites releasing all the energy. However, the process can be very inefficient due to narrow energy bands in the material. A form of increasing this efficiency is by adding a material with a wide energy band to allow absorption of photons with more varied energy.\\
 
-    This paper will focus on an organic compound known as Quinizarin. The compound is an organic dye and has a broad energy band. This means it can absorb a broad spectrum of photons energies. The excited electrons from this energy band can move to the actual up-conversion system and hereby increase the efficiency of the up-conversion. The planned up-conversion system will consist of Quinizarin as an organic sensitizer, Nd+3 and Yb+3 as electron migrators (transporting the electrons to the site of de-exitation), and Tm+3 as accumulator and activator (collecting excited electrons and upconverting them, and de-exitation site for said electrons). The system is planned to be inserted into a matrix of YbF3 or possibly YF3.\\
+    This paper will focus on an organic compound known as Quinizarin. The compound is an organic dye and has a broad energy band. This means it can absorb a broad spectrum of photons energies. The excited electrons from this energy band can move to the actual up-conversion system and hereby increase the efficiency of the up-conversion. The planned up-conversion system will consist of Quinizarin as an organic sensitizer, Nd+3 and Yb+3 as electron migrators (transporting the electrons to the site of de-excitation), and Tm+3 as accumulator and activator (collecting excited electrons and up-converting them, and de-excitation site for said electrons). The system is planned to be inserted into a matrix of YbF3 or possibly YF3.\\
 
-    Since Quinizarin is such an important piece of the system it is wise to know how it interacts with the other materials. This study will therefore investigate how Quinizarin's electronic band structure changes when the Hydrogen in the alcohol group is replaced with different atoms. In this case: Yb, Nd, Tm and Y. See figure~\ref{fig:Quinizarin-X} for an illustration.\\
+    Since Quinizarin is such an important piece of the system it is wise to know how it interacts with the other materials. This study will therefore investigate how Quinizarin's electronic band structure changes when the Hydrogen in the alcohol group is replaced with different atoms. In this case: Yb, Nd, Tm and Y. See %figure~(\ref{fig:Quinizarin-X} for an illustration).\\
 
+\iffalse
     \begin{figure}[H]
         \centering
         \includegraphics[width = 11cm]{../fig/quinizarin-x.png}
         \caption{Molecular structure of Quinizarin with H in -OH replaced with atom X. X can be H, Y, Yb, Nd or Tm. Structure drawn with online illustrator from \href{https://chem-space.com/search}{Chem-Space}.}
         \label{fig:Quinizarin-X}
     \end{figure}
+\fi
 
 \vspace{1cm}
 
 \section{Method}    \label{sec:Method}
 
-  ``Briefly about the method; choice of parameters, cutoff, etc.''
+  The supercomputer Saga contains many different POSCAR-files for a wide range of structures. Unfortunately for us, Quinizarin was not included. Therefore we had to make our own POSCAR-file. This was done by drawing the structure in an organic compound structure program we found on the internet: \href{https://molview.org}{MolView}. This site lets the user draw organic structures with many varying features, and it also lets the user export the data as a \texttt{.mol}-file. A \texttt{.mol}-file has a similar structure with a POSCAR-file, which let us easily make the POSCAR-file for Quinizarin. \\
 
-  \subsection{Convergence}
+  The coordinates of the atoms in the \texttt{.mol}-file were put in a POSCAR file with Direct coordinates. We added a unit cell and, and opened it in VESTA. In order to make the plane-waves more stable for the calculations, we inserted a vacuum distance in each direction of 12 Å. \\
 
-    Testing for convergence of energy and k-point is important to determine if the variables in INCAR or KPOINTS is good enough to be used for further calculations, mostly to ensure good and applicable results. A good convergence should give an error of less than $1\cdot 10^{-3}$.
+  To differentiate the two Hydrogen-atoms in the alcohol-groups from the other Hydrogen-atoms, we had to find their positions somehow. This was done in the program GeoGebra, by plotting each atom with their positions in 3D. We found that the Hydrogen-atoms were number 25 and 26 in POSCAR. In hindsight, we discovered that this would be easier to do in VESTA. \\
 
-    The testing of convergence is done by performing VASP calculations with different values of either energy-cutoff (ENCUT) or k-point density.
-
-    Energy: ENCUT: 300 to 900
-
-    K-point: K-point density: 1.0 to 6.0
+  In this project we will compare the basic Quinizarin with Quinizarin with both Yttrium (Y) and Ytterbium (Yb) substituted in the Hydrogen-positions described in the subsection above. Therefore we had to make in total three POSCAR-files for the three structures. This was done by opening POSCAR in emacs and changing the two last atoms given in the file to the substitution-atoms. \\
 
 
-  \subsection{Static}
+  \subsection{Convergence}  \label{sec:Convergence}
 
+    Testing for convergence of energy and k-point is important to determine if the variables in INCAR or KPOINTS are good enough to be used for further calculations, mostly to ensure decent and applicable results. If the error is less than $1\cdot 10^{-3}$ the calculation can be considered converged. \\
+
+    The testing of convergence is done by performing VASP calculations with different values of either energy-cutoff (ENCUT) or k-point density. For this project the energy convergence testing was done for ENCUT between 300 and 900 eV, with 50 eV steps. The k-point convergence testing was done for k-point density between 1.0 and 6.0, with 1.0 difference. For the aforementioned test the value for ENCUT was decided from the energy convergence test. \\
 
 
   \subsection{Relax}
 
+    A relaxing calculation is performed to minimize the max force of the material. This is done by moving the atoms to find the optimal atom positions for the structure. \\
+
+    We performed the relaxation calculation once for each structure. \\
 
 
-  \subsection{Static after relax}
+  \subsection{Static}
 
+    A static calculation is a calculation in which atoms are held at their original positions. These are often used for obtaining a converged energy, as calculations that relax the structure are less safe to use for this.\\
+
+    In this project we have performed static calculations both before and after performing ionic relaxation. The static calculations that were performed before relaxation were to see how the energies changed between before and after relaxation. \\
 
 
   \subsection{DOS}
 
+    A plot of density of states shows the at what levels the energy bands, or orbitals, exists and how broad they are. A band with a high density of states allows for more electrons to occupy it, whereas a band with a low density of states allows for fewer. The density of states is generally plotted against the energy, and peaks in the plot show how many electrons are allowed to exist at a specific energy. An energy gap is shown by two peaks separated by a void. The size of the void (span in energy) is the height of the energy gap. \\
+
+    For obtaining a plot of density of states we ran the script dosplot.py for the values generated by the post-relaxation static calculations. This ensured that the values were converged and safe to use. dosplot.py reads the DOSCAR-file and plots the values in an easy-to-read format. \\
+
+
+  \subsection{Bang gap}
 
 
 
 
-
-
-
+  \subsection{Charge density}
 
 
 
@@ -275,20 +297,127 @@ And then later you can call:
 
 \section{Results}   \label{sec:Results}
 
-  \subsection{Energy convergence}
+  \subsection{Convergence of energy}
 
-    Started to convergence around 450 eV for ENCUT.
+     The energy convergence tests were run as described in Section \ref{sec:Convergence}. After the runs were completed we looked at vaspout from each of the runs. The total energy per atom, or TOTEN/atom, was plotted against the cutoff energy and this is shown in Figure~(\ref{fig:convergence_energy.png}). \\
 
-  \subsection{K-points convergence}
+     Figure~(\ref{fig:convergence_energy_difference.png}) shows the difference in energy from one value to the next. This means, the value of ENCUT=300 is the difference in total energy going a cutoff energy of 300 eV to 350 eV. \\
 
+    \iffalse
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/convergence_energy.png}
+      \caption{Plot of energy convergence for Quinizarin, with ENCUT ranging from 300 eV to 900 eV. }
+      \label{fig:convergence_energy.png}
+    \end{figure}
 
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width = 11cm]{../fig/convergence_energy_difference.png}
+      \caption{Plot of the difference in energy convergence for Quinizarin, given by ENCUT. }
+      \label{fig:convergence_energy_difference.png}
+    \end{figure}
+    \fi
 
+  \subsection{Convergence of k-points}
 
+    For the convergence of k-points the span of values were used as described in Section \ref{sec:Convergence}. Figure~(\ref{fig:convergence_kpoints.png}) shows how the total energy changes as k-density increases. Like with energy, the difference has also been plotted, and this is shown in Figure~(\ref{fig:convergence_kpoints_difference.png}).
 
+    \iffalse
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/convergence_kpoints.png}
+        \caption{Plot of energy convergence for Quinizarin, with k-point density ranging from 1 to 6. }
+        \label{fig:convergence_kpoints.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/convergence_kpoints_difference.png}
+        \caption{Plot of the difference in energy convergence for Quinizarin, given by k-point density. }
+        \label{fig:convergence_kpoints_difference.png}
+    \end{figure}
+    \fi
+
+  \subsection{Quinizarin}
+
+    \subsubsection{Relaxing the structure}
+
+      Show figures before/after relaxing
+
+    \subsubsection{Total and relative energies}
+
+      Table of TOTEN for each and TOTEN relative to each other
+
+    \subsubsection{Total and Local density of states}
+
+      TDOS and LDOS graphs
+
+    \subsubsection{Band Gaps}
+
+      "The band gap was X eV"
+
+    \subsubsection{Charge Density}
+
+      Show CHGCAR figures
+
+  \subsection{Quinizarin with Yttrium}
+
+    \subsubsection{Relaxing the structure}
+
+      Show figures before/after relaxing
+
+    \subsubsection{Total and relative energies}
+
+      Table of TOTEN for each and TOTEN relative to each other
+
+    \subsubsection{Total and Local density of states}
+
+      TDOS and LDOS graphs
+
+    \subsubsection{Band Gaps}
+
+      "The band gap was X eV"
+
+    \subsubsection{Charge Density}
+
+      Show CHGCAR figures
+
+  \subsection{Quinizarin with Ytterbium}
+
+    \subsubsection{Relaxing the structure}
+
+      Show figures before/after relaxing
+
+    \subsubsection{Total and relative energies}
+
+      Table of TOTEN for each and TOTEN relative to each other
+
+    \subsubsection{Total and Local density of states}
+
+      TDOS and LDOS graphs
+
+    \subsubsection{Band Gaps}
+
+      "The band gap was X eV"
+
+    \subsubsection{Charge Density}
+
+      Show CHGCAR figures
 
 \vspace{1cm}
 
 \section{Discussion}    \label{sec:Discussion}
+
+  \subsection{Convergence of energy}
+
+    Figure~(\ref{fig:convergence_energy.png}) shows that the values change quite rapidly and reach a peak around cutoff 500 eV which then loweres and stabilizes near cutoff 800 eV. However, the values differ by a very small amount, which can indicate that one needs a smaller cuttoff energy than 800. Figure~(\ref{fig:convergence_energy_difference.png}) also indicates this. \\
+
+    From Section~\ref{sec:Convergence} we learned that if the difference in energy is less than 0.003 eV the calculation can be considered converged. The figure shows that ENCUT=450 is below 0.002 eV in difference from ENCUT=500. This shows that ENCUT=450 is safe enough to use. This can seem weird due to it being before a peak and the stabilized total energy is lower, but the values are quite small, and overall should not impact the results in a meaningful way. \\
+
+  \subsection{Convergence of k-points}
+
+    There were fewer data points than with the energy convergence, so it is not as easy to find a pattern as it was with the convergence of energy. For Figure~(\ref{fig:convergence_kpoints.png}) one can see the energy increases to a peak around 4.0 and 5.0 in k-density, which then decreases at k-density 6.0. Due to the lack of a good pattern we quickly moved on to Figure~(\ref{fig:convergence_kpoints_difference.png}) which showed even less of a converging pattern. However, already at k-density 1.0 we could see the difference was less than 0.003 eV. Since the difference increased again with 2.0, we wondered if we could use 3.0, but after a few test-calculations with both 1.0 and 3.0 we found the difference was negligible and so we chose to use 1.0.
 
 \vspace{1cm}
 
@@ -313,41 +442,7 @@ And then later you can call:
 
 \appendix
 
-\section{Convergence energy}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/convergence_energy.png}
-      \caption{Plot of energy convergence for Quinizarin, with ENCUT ranging from 300 eV to 900 eV. }
-      \label{fig:convergence_energy.png}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/convergence_energy_difference.png}
-      \caption{Plot of the difference in energy convergence for Quinizarin, given by ENCUT. }
-      \label{fig:convergence_energy_difference.png}
-  \end{figure}
-
-\vspace{1cm}
-
-\section{Convergence k-points}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/convergence_kpoints.png}
-      \caption{Plot of energy convergence for Quinizarin, with k-point density ranging from 1 to 6. }
-      \label{fig:convergence_kpoints.png}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/convergence_kpoints_difference.png}
-      \caption{Plot of the difference in energy convergence for Quinizarin, given by k-point density. }
-      \label{fig:convergence_kpoints_difference.png}
-  \end{figure}
-
-\vspace{1cm}
+\iffalse
 
 \section{Quinizarin-bilder}
 
@@ -624,6 +719,8 @@ And then later you can call:
       \caption{Plot of local DOS of atom number 26(Yb in upper alcohol-group) for Quinizarin with Ytterbium, zoomed in for energies between 0.0 eV and 8.0 eV. }
       \label{fig:Yb_LDOS26_2.png}
   \end{figure}
+
+\fi
 
 \vspace{1cm}
 
