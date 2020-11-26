@@ -2,7 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[english,norsk]{babel}   %Engelsk først så norsk, så norsk blir prioritert
+\usepackage[english]{babel}   %Engelsk først så norsk, så norsk blir prioritert
 \usepackage{graphicx}
 \usepackage{amsmath}        %For å kunne skrive matte
 \usepackage{listings}       %For å kunne skrive inn kode med fin formatering
@@ -253,7 +253,7 @@ And then later you can call:
 
   To differentiate the two Hydrogen-atoms in the alcohol-groups from the other Hydrogen-atoms, we had to find their positions somehow. This was done in the program GeoGebra, by plotting each atom with their positions in 3D. We found that the Hydrogen-atoms were number 25 and 26 in POSCAR. In hindsight, we discovered that this would be easier to do in VESTA. \\
 
-  In this project we will compare the basic Quinizarin with Quinizarin with both Yttrium (Y) and Ytterbium (Yb) substituted in the Hydrogen-positions described in the subsection above. Therefore we had to make in total three POSCAR-files for the three structures. This was done by opening POSCAR in emacs and changing the two last atoms given in the file to the substitution-atoms. \\
+  In this project we will compare the basic Quinizarin with Quinizarin with both Yttrium (Y) and Ytterbium (Yb) substituted in the Hydrogen-positions described in the subsection above. Therefore we had to make in total three POSCAR-files for the three structures. This was done by opening POSCAR in Emacs and changing the two last atoms given in the file to the substitution-atoms. After that we ran in to issues with relaxing the structure, and so went to the ICSD database to find a decent distance between the new atoms and oxygen. We used approximately 2.3 Å in distance, and that worked well for relaxing the structure. \\
 
 
   \subsection{Convergence}  \label{sec:Convergence}
@@ -286,11 +286,12 @@ And then later you can call:
 
   \subsection{Bang gap}
 
-
+    The density of states plots show where the band gap is located, but it does not give the numerical value. VASP has the command \texttt{bandgap} specifically for this, hence we used this to find the numerical value of the band gap for the structures. \\
 
 
   \subsection{Charge density}
 
+    The charge density of a structure shows how the charge is distributed around the atoms in that structure. A plot of the charge density therefore shows how many electrons the different atoms attract. To plot the charge density the file CHGCAR, after a completed VASP calculation, is copied over to VESTA, and then visualized.
 
 
 \vspace{1cm}
@@ -303,7 +304,8 @@ And then later you can call:
 
      Figure~(\ref{fig:convergence_energy_difference.png}) shows the difference in energy from one value to the next. This means, the value of ENCUT=300 is the difference in total energy going a cutoff energy of 300 eV to 350 eV. \\
 
-    \iffalse
+
+
     \begin{figure}[H]
       \centering
       \includegraphics[width = 11cm]{../fig/convergence_energy.png}
@@ -317,13 +319,13 @@ And then later you can call:
       \caption{Plot of the difference in energy convergence for Quinizarin, given by ENCUT. }
       \label{fig:convergence_energy_difference.png}
     \end{figure}
-    \fi
+
 
   \subsection{Convergence of k-points}
 
     For the convergence of k-points the span of values were used as described in Section \ref{sec:Convergence}. Figure~(\ref{fig:convergence_kpoints.png}) shows how the total energy changes as k-density increases. Like with energy, the difference has also been plotted, and this is shown in Figure~(\ref{fig:convergence_kpoints_difference.png}).
 
-    \iffalse
+
     \begin{figure}[H]
         \centering
         \includegraphics[width = 11cm]{../fig/convergence_kpoints.png}
@@ -337,73 +339,324 @@ And then later you can call:
         \caption{Plot of the difference in energy convergence for Quinizarin, given by k-point density. }
         \label{fig:convergence_kpoints_difference.png}
     \end{figure}
-    \fi
+
 
   \subsection{Quinizarin}
 
     \subsubsection{Relaxing the structure}
 
-      Show figures before/after relaxing
+      The initial static calculation of Quinizarin gave a CONTCAR as shown in Figure~(\ref{fig:basic_staticbefore_CONTCAR}). \\
+
+      After relaxing the structure and performing a new static calculation, CONTCAR looked as shown in Figure~(\ref{fig:basic_staticafter_CONTCAR}). We do not show CONTCAR from the actual ionic relaxation as it is identical to the post-relaxation static calculation.
+
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/basic_staticbefore_CONTCAR.png}
+        \caption{Structure of Quinizarin for static VASP calculation. }
+        \label{fig:basic_staticbefore_CONTCAR}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/basic_staticafter_CONTCAR.png}
+        \caption{Structure of Quinizarin for static VASP calculation after relaxed calculation. }
+        \label{fig:basic_staticafter_CONTCAR}
+      \end{figure}
+
 
     \subsubsection{Total and relative energies}
 
-      Table of TOTEN for each and TOTEN relative to each other
+      As can be seen in Table~(\ref{tab:TOTENquinizarin}), there was a difference in total energies. This turned out to be 0.015 eV in relative energy difference.
 
-    \subsubsection{Total and Local density of states}
+      \begin{table}[H]
+        \centering
+        \caption{Total energy per atom for Quinizarin}
+        \label{tab:TOTENquinizarin}
+        \begin{tabular}{|c|c|}
+            \hline
+            Calculation & Total energy per atom [eV/atom]  \\
+            \hline \hline
+            staticbefore & $-7.019$ \\
+            staticafter & $-7.034$ \\
+            \hline
+        \end{tabular} \\
+        \hspace{0pt}\\
+    \end{table}
 
-      TDOS and LDOS graphs
+    \subsubsection{Total and local density of states}
 
-    \subsubsection{Band Gaps}
+      In Figure~(\ref{fig:basic_TDOS_2} we can see the total density of states of the Quinizarin molecule. Figure~(\ref{fig:basic_LDOS25_2} shows the local density of states for the Hydrogen atom in the lower alcohol group, whereas Figure~(\ref{fig:basic_LDOS26_2} shows the local density of states for the Hydrogen atom in the upper alcohol group.
+      It is important to note that these figures are zoomed in around the fermi-level. To see the full pictures, see Figure~(\ref{fig:basic_TDOS_1}), Figure~(\ref{fig:basic_LDOS25_1}) and Figure~(\ref{fig:basic_LDOS26_1}) in \ref{sec:Appendix}. \\
 
-      "The band gap was X eV"
 
-    \subsubsection{Charge Density}
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/basic_TDOS_2.png}
+        \caption{Plot of total DOS for Quinizarin, zoomed in for energies between 4.0 eV and 8.0 eV. }
+        \label{fig:basic_TDOS_2}
+      \end{figure}
 
-      Show CHGCAR figures
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/basic_LDOS25_2.png}
+        \caption{Plot of local DOS for atom number 25(H in alcohol-group) for Quinizarin, zoomed in for energies between 4.0 eV and 8.0 eV. }
+        \label{fig:basic_LDOS25_2}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/basic_LDOS26_2.png}
+        \caption{Plot of local DOS for atom number 26(H in alcohol-group) for Quinizarin, zoomed in for energies between 4.0 eV and 8.0 eV. }
+        \label{fig:basic_LDOS26_2}
+      \end{figure}
+
+    \subsubsection{Band gap}
+
+      \begin{table}[H]
+        \centering
+        \caption{Band gap, valance band maximum and conduction band minimum for Quinizarin with static calculations. }
+        \vspace{0mm}
+        \label{tab:bandgapquinizarin}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Calculation & Band gap [eV] & VBM [eV] & CBM [eV]  \\
+            \hline \hline
+            Before relax & $1.773$ & $-5.335$ & $-3.562$ \\
+            After relax & $1.594$ & $-5.313$ & $-3.720$ \\
+            \hline
+        \end{tabular} \\
+        \hspace{0pt}\\
+      \end{table}
+
+
+    \subsubsection{Charge density}
+
+      The charge density for the static calculation after relaxation can be shown in Figure~(\ref{fig:basic_staticafter_CHGCAR}. The charge density before relaxation is shown in Figure~(\ref{fig:basic_staticbefore_CHGCAR}).
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/basic_staticafter_CHGCAR.png}
+        \caption{Charge density of Quinizarin for static VASP calculation after relaxed calculation. }
+        \label{fig:basic_staticafter_CHGCAR}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/basic_staticbefore_CHGCAR.png}
+        \caption{Charge density of Quinizarin for static VASP calculation. }
+        \label{fig:basic_staticbefore_CHGCAR}
+      \end{figure}
+
 
   \subsection{Quinizarin with Yttrium}
 
     \subsubsection{Relaxing the structure}
 
-      Show figures before/after relaxing
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/Y_staticbefore_CONTCAR.png}
+        \caption{Structure of Quinizarin with Yttrium for static VASP calculation. }
+        \label{fig:Y_staticbefore_CONTCAR}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/Y_staticafter_CONTCAR.png}
+        \caption{Structure of Quinizarin with Yttrium for static VASP   calculation after relaxed calculation. }
+        \label{fig:Y_staticafter_CONTCAR}
+      \end{figure}
+
 
     \subsubsection{Total and relative energies}
 
       Table of TOTEN for each and TOTEN relative to each other
 
-    \subsubsection{Total and Local density of states}
+      \begin{table}[H]
+        \centering
+        \caption{Total energy per atom for Quinizarin with Yttrium. }
+        \vspace{0mm}
+        \label{tab:TOTENY}
+        \begin{tabular}{|c|c|}
+            \hline
+            Calculation & Total energy per atom [eV/atom]  \\
+            \hline \hline
+            staticbefore & $-7.167$ \\
+            staticafter & $-7.276$ \\
+            \hline
+        \end{tabular} \\
+        \hspace{0pt}\\
+      \end{table}
+
+
+    \subsubsection{Total and local density of states}
 
       TDOS and LDOS graphs
 
-    \subsubsection{Band Gaps}
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/Y_TDOS_2.png}
+        \caption{Plot of total DOS for Yttrium, zoomed in for energies between 0.0 eV and 4.5 eV. }
+        \label{fig:Y_TDOS_2.png}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/Y_LDOS25_2.png}
+        \caption{Plot of local DOS of atom number 25(Y in lower alcohol-group) for Quinizarin with Yttrium, zoomed in for energies between 0.0 eV and 4.5 eV. }
+        \label{fig:Y_LDOS25_2.png}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/Y_LDOS25_2.png}
+        \caption{Plot of local DOS of atom number 25(Y in lower alcohol-group) for Quinizarin with Yttrium, zoomed in for energies between 0.0 eV and 4.5 eV. }
+        \label{fig:Y_LDOS25_2.png}
+      \end{figure}
+
+      \begin{figure}[H]
+          \centering
+          \includegraphics[width = 11cm]{../fig/Y_LDOS26_2.png}
+          \caption{Plot of local DOS of atom number 26(Y in upper alcohol-group) for Quinizarin with Yttrium, zoomed in for energies between 0.0 eV and 4.5 eV. }
+          \label{fig:Y_LDOS26_2.png}
+      \end{figure}
+
+
+    \subsubsection{Band gap}
 
       "The band gap was X eV"
 
-    \subsubsection{Charge Density}
+      \begin{table}[H]
+        \centering
+        \caption{Band gap, valance band maximum and conduction band minimum for Quinizarin with Yttrium with static calculations. }
+        \vspace{0mm}
+        \label{tab:bandgapY}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Calculation & Band gap [eV] & VBM [eV] & CBM [eV]  \\
+            \hline \hline
+            Before relax & $0.042$ & $-3.323$ & $-3.281$ \\
+            After relax & $0.029$ & $-2.979$ & $-2.950$ \\
+            \hline
+        \end{tabular} \\
+        \hspace{0pt}\\
+      \end{table}
+
+    \subsubsection{Charge density}
 
       Show CHGCAR figures
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/Y_staticbefore_CHGCAR.png}
+        \caption{Charge density of Quinizarin with Yttrium for static VASP calculation. }
+        \label{fig:Y_staticbefore_CHGCAR}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/Y_staticafter_CHGCAR.png}
+        \caption{Charge density of Quinizarin with Yttrium for static VASP calculation after relaxed calculation. }
+        \label{fig:Y_staticafter_CHGCAR}
+      \end{figure}
+
 
   \subsection{Quinizarin with Ytterbium}
 
     \subsubsection{Relaxing the structure}
 
-      Show figures before/after relaxing
+      Quinizarin with Ytterbium before relaxation is shown in Figure~(\ref{fig:Yb_staticbefore_CONTCAR}). After relaxation the structure looked as in Figure~(\ref{fig:Yb_staticafter_CONTCAR}).
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/Yb_staticbefore_CONTCAR.png}
+        \caption{Structure of Quinizarin with Ytterbium for static VASP calculation. }
+        \label{fig:Yb_staticbefore_CONTCAR}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/Yb_staticafter_CONTCAR.png}
+        \caption{Structure of Quinizarin with Ytterbium for static VASP calculation after relaxed calculation. }
+        \label{fig:Yb_staticafter_CONTCAR}
+      \end{figure}
 
     \subsubsection{Total and relative energies}
 
-      Table of TOTEN for each and TOTEN relative to each other
+      See Table~(\ref{tab:TOTENYb}) for a table comparing the total energies of the VASP calculations of Quinizarin with Ytterbium. The relative energy was 0.013 eV difference.
+
+      \begin{table}[H]
+        \centering
+        \caption{Total energy per atom for Quinizarin with Ytterbium before and after relaxation. }
+        \label{tab:TOTENYb}
+        \begin{tabular}{|c|c|}
+            \hline
+            Calculation & Total energy per atom [eV/atom]  \\
+            \hline \hline
+            Before relax & $-6.869$ \\
+            After relax & $-6.882$ \\
+            \hline
+        \end{tabular} \\
+        \hspace{0pt}\\
+      \end{table}
 
     \subsubsection{Total and Local density of states}
 
       TDOS and LDOS graphs
 
+
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width = 11cm]{../fig/Yb_TDOS_2.png}
+        \caption{Plot of total DOS for Ytterbium, zoomed in for energies between 0.0 eV and 8.0 eV. }
+        \label{fig:Yb_TDOS_2.png}
+      \end{figure}
+
+      \begin{figure}[H]
+          \centering
+          \includegraphics[width = 11cm]{../fig/Yb_LDOS25_2.png}
+          \caption{Plot of local DOS of atom number 25(Yb in lower alcohol-group) for Quinizarin with Ytterbium, zoomed in for energies between 0.0 eV and 8.0 eV. }
+          \label{fig:Yb_LDOS25_2.png}
+      \end{figure}
+
+      \begin{figure}[H]
+          \centering
+          \includegraphics[width = 11cm]{../fig/Yb_LDOS26_2.png}
+          \caption{Plot of local DOS of atom number 26(Yb in upper alcohol-group) for Quinizarin with Ytterbium, zoomed in for energies between 0.0 eV and 8.0 eV. }
+          \label{fig:Yb_LDOS26_2.png}
+      \end{figure}
+
+
+
     \subsubsection{Band Gaps}
 
       "The band gap was X eV"
 
+      \begin{table}[H]
+        \centering
+        \caption{Band gap, valance band maximum and conduction band minimum for Quinizarin with Ytterbium with static calculations. }
+        \vspace{0mm}
+        \label{tab:bandgapYb}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Calculation & Band gap [eV] & VBM [eV] & CBM [eV]  \\
+            \hline \hline
+            Before relax & $0.0552$ & $-2.9157$ & $-2.6422$ \\
+            After relax & $0.0771$ & $-2.7193$ & $-3.720$ \\
+            \hline
+        \end{tabular} \\
+        \hspace{0pt}\\
+      \end{table}
+
     \subsubsection{Charge Density}
 
       Show CHGCAR figures
+
+  \subsection{Quinizarin with Neodymium}
+
+
+
 
 \vspace{1cm}
 
@@ -417,7 +670,25 @@ And then later you can call:
 
   \subsection{Convergence of k-points}
 
-    There were fewer data points than with the energy convergence, so it is not as easy to find a pattern as it was with the convergence of energy. For Figure~(\ref{fig:convergence_kpoints.png}) one can see the energy increases to a peak around 4.0 and 5.0 in k-density, which then decreases at k-density 6.0. Due to the lack of a good pattern we quickly moved on to Figure~(\ref{fig:convergence_kpoints_difference.png}) which showed even less of a converging pattern. However, already at k-density 1.0 we could see the difference was less than 0.003 eV. Since the difference increased again with 2.0, we wondered if we could use 3.0, but after a few test-calculations with both 1.0 and 3.0 we found the difference was negligible and so we chose to use 1.0.
+    There were fewer data points than with the energy convergence, so it is not as easy to find a pattern as it was with the convergence of energy. For Figure~(\ref{fig:convergence_kpoints.png}) one can see the energy increases to a peak around 4.0 and 5.0 in k-density, which then decreases at k-density 6.0. Due to the lack of a good pattern we quickly moved on to Figure~(\ref{fig:convergence_kpoints_difference.png}) which showed even less of a converging pattern. However, already at k-density 1.0 we could see the difference was less than 0.003 eV. Since the difference increased again with 2.0, we wondered if we could use 3.0, but after a few test-calculations with both 1.0 and 3.0 we found the difference was negligible and so we chose to use 1.0. \\
+
+
+  \subsection{Quinizarin}
+
+
+  \subsection{Quinizarin with Yttrium}
+
+
+  \subsection{Quinizarin with Ytterbium}
+
+
+  \subsection{Quinizarin with Neodymium}
+
+
+  \subsection{Total comparison}
+
+
+
 
 \vspace{1cm}
 
@@ -440,80 +711,19 @@ And then later you can call:
 
 %------------------ Appendix ------------------------------------
 
-\appendix
+\appendix  \label{sec:Appendix}
 
 \iffalse
 
 \section{Quinizarin-bilder}
 
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/basic_staticbefore_CONTCAR.png}
-      \caption{Structure of Quinizarin for static VASP calculation. }
-      \label{fig:basic_staticbefore_CONTCAR}
-  \end{figure}
 
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/basic_staticbefore_CHGCAR.png}
-      \caption{Charge density of Quinizarin for static VASP calculation. }
-      \label{fig:basic_staticbefore_CHGCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/basic_relax_CONTCAR.png}
-      \caption{Structure of Quinizarin for relaxed VASP calculation. }
-      \label{fig:basic_relax_CONTCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/basic_relax_CHGCAR.png}
-      \caption{Charge density of Quinizarin for relaxed VASP calculation. }
-      \label{fig:basic_relax_CHGCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/basic_staticafter_CONTCAR.png}
-      \caption{Structure of Quinizarin for static VASP calculation after relaxed calculation. }
-      \label{fig:basic_staticafter_CONTCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/basic_staticafter_CHGCAR.png}
-      \caption{Charge density of Quinizarin for static VASP calculation after relaxed calculation. }
-      \label{fig:basic_staticafter_CHGCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/basic_DOS_CONTCAR.png}
-      \caption{Structure of Quinizarin for DOS VASP calculation. }
-      \label{fig:basic_DOS_CONTCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/basic_DOS_CHGCAR.png}
-      \caption{Charge density of Quinizarin for DOS VASP calculation. }
-      \label{fig:basic_DOS_CHGCAR}
-  \end{figure}
 
   \begin{figure}[H]
       \centering
       \includegraphics[width = 11cm]{../fig/basic_TDOS_1.png}
       \caption{Plot of total DOS for Quinizarin. }
       \label{fig:basic_TDOS_1}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/basic_TDOS_2.png}
-      \caption{Plot of total DOS for Quinizarin, zoomed in for energies between 4.0 eV and 8.0 eV. }
-      \label{fig:basic_TDOS_2}
   \end{figure}
 
   \begin{figure}[H]
@@ -525,83 +735,21 @@ And then later you can call:
 
   \begin{figure}[H]
       \centering
-      \includegraphics[width = 11cm]{../fig/basic_LDOS25_2.png}
-      \caption{Plot of local DOS for atom number 25(H in alcohol-group) for Quinizarin, zoomed in for energies between 4.0 eV and 8.0 eV. }
-      \label{fig:basic_LDOS25_2}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
       \includegraphics[width = 11cm]{../fig/basic_LDOS26_1.png}
       \caption{Plot of local DOS for atom number 26(H in alcohol-group) for Quinizarin. }
       \label{fig:basic_LDOS26_1}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/basic_LDOS26_2.png}
-      \caption{Plot of local DOS for atom number 26(H in alcohol-group) for Quinizarin, zoomed in for energies between 4.0 eV and 8.0 eV. }
-      \label{fig:basic_LDOS26_2}
   \end{figure}
 
 \vspace{1cm}
 
 \section{Y-bilder}
 
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Y_staticbefore_CONTCAR.png}
-      \caption{Structure of Quinizarin with Yttrium for static VASP calculation. }
-      \label{fig:Y_staticbefore_CONTCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Y_staticbefore_CHGCAR.png}
-      \caption{Charge density of Quinizarin with Yttrium for static VASP calculation. }
-      \label{fig:Y_staticbefore_CHGCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Y_relax_CONTCAR.png}
-      \caption{Structure of Quinizarin with Yttrium for relaxed VASP calculation. }
-      \label{fig:Y_relax_CONTCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Y_relax_CHGCAR.png}
-      \caption{Charge density of Quinizarin with Yttrium for relaxed VASP calculation. }
-      \label{fig:Y_relax_CHGCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Y_staticafter_CONTCAR.png}
-      \caption{Structure of Quinizarin with Yttrium for static VASP calculation after relaxed calculation. }
-      \label{fig:Y_staticafter_CONTCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Y_staticafter_CHGCAR.png}
-      \caption{Charge density of Quinizarin with Yttrium for static VASP calculation after relaxed calculation. }
-      \label{fig:Y_staticafter_CHGCAR}
-  \end{figure}
 
   \begin{figure}[H]
       \centering
       \includegraphics[width = 11cm]{../fig/Y_TDOS_1.png}
       \caption{Plot of total DOS for Quinizarin with Yttrium. }
       \label{fig:Y_TDOS_1.png}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Y_TDOS_2.png}
-      \caption{Plot of total DOS for Yttrium, zoomed in for energies between 0.0 eV and 4.5 eV. }
-      \label{fig:Y_TDOS_2.png}
   \end{figure}
 
   \begin{figure}[H]
@@ -613,35 +761,16 @@ And then later you can call:
 
   \begin{figure}[H]
       \centering
-      \includegraphics[width = 11cm]{../fig/Y_LDOS25_2.png}
-      \caption{Plot of local DOS of atom number 25(Y in lower alcohol-group) for Quinizarin with Yttrium, zoomed in for energies between 0.0 eV and 4.5 eV. }
-      \label{fig:Y_LDOS25_2.png}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
       \includegraphics[width = 11cm]{../fig/Y_LDOS26_1.png}
       \caption{Plot of local DOS of atom number 26(Y in upper alcohol-group) for Quinizarin with Yttrium. }
       \label{fig:Y_LDOS26_1.png}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Y_LDOS26_2.png}
-      \caption{Plot of local DOS of atom number 26(Y in upper alcohol-group) for Quinizarin with Yttrium, zoomed in for energies between 0.0 eV and 4.5 eV. }
-      \label{fig:Y_LDOS26_2.png}
   \end{figure}
 
 \vspace{1cm}
 
 \section{Yb-bilder}
 
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Yb_staticbefore_CONTCAR.png}
-      \caption{Structure of Quinizarin with Ytterbium for static VASP calculation. }
-      \label{fig:Yb_staticbefore_CONTCAR}
-  \end{figure}
+
 
   \begin{figure}[H]
       \centering
@@ -650,26 +779,6 @@ And then later you can call:
       \label{fig:Yb_staticbefore_CHGCAR}
   \end{figure}
 
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Yb_relax_CONTCAR.png}
-      \caption{Structure of Quinizarin with Ytterbium for relaxed VASP calculation. }
-      \label{fig:Yb_relax_CONTCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Yb_relax_CHGCAR.png}
-      \caption{Charge density of Quinizarin with Ytterbium for relaxed VASP calculation. }
-      \label{fig:Yb_relax_CHGCAR}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Yb_staticafter_CONTCAR.png}
-      \caption{Structure of Quinizarin with Ytterbium for static VASP calculation after relaxed calculation. }
-      \label{fig:Yb_staticafter_CONTCAR}
-  \end{figure}
 
   \begin{figure}[H]
       \centering
@@ -687,23 +796,9 @@ And then later you can call:
 
   \begin{figure}[H]
       \centering
-      \includegraphics[width = 11cm]{../fig/Yb_TDOS_2.png}
-      \caption{Plot of total DOS for Ytterbium, zoomed in for energies between 0.0 eV and 8.0 eV. }
-      \label{fig:Yb_TDOS_2.png}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
       \includegraphics[width = 11cm]{../fig/Yb_LDOS25_1.png}
       \caption{Plot of local DOS of atom number 25(Yb in lower alcohol-group) for Quinizarin with Ytterbium. }
       \label{fig:Yb_LDOS25_1.png}
-  \end{figure}
-
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Yb_LDOS25_2.png}
-      \caption{Plot of local DOS of atom number 25(Yb in lower alcohol-group) for Quinizarin with Ytterbium, zoomed in for energies between 0.0 eV and 8.0 eV. }
-      \label{fig:Yb_LDOS25_2.png}
   \end{figure}
 
   \begin{figure}[H]
@@ -713,18 +808,11 @@ And then later you can call:
       \label{fig:Yb_LDOS26_1.png}
   \end{figure}
 
-  \begin{figure}[H]
-      \centering
-      \includegraphics[width = 11cm]{../fig/Yb_LDOS26_2.png}
-      \caption{Plot of local DOS of atom number 26(Yb in upper alcohol-group) for Quinizarin with Ytterbium, zoomed in for energies between 0.0 eV and 8.0 eV. }
-      \label{fig:Yb_LDOS26_2.png}
-  \end{figure}
-
 \fi
 
 \vspace{1cm}
 
-\section{Appendix 2}
+\section{Appendix 1}
 
     \iffalse
     \begin{python}
@@ -856,7 +944,7 @@ And then later you can call:
     \end{figure}
 
 
-    \begin{table}[ht]
+    \begin{table}[H]
         \centering
         \caption{Forventet og målt resistivitet for Schottkydiodene fra firepunktsmålingen.}
         \vspace{2mm}

@@ -138,13 +138,3 @@ basic_quinizarin
 login-3:staticafterrelax$ bandgap OUTCAR
 Gap     Band#   VBM     CBM     VBM-occ CBM-occ File
   1.5935   44  -5.3133  -3.7198    2.00    0.00 OUTCAR
-
-Yb k4
-login-1:k4$ bandgap OUTCAR
-Gap	Band#	VBM	CBM	VBM-occ	CBM-occ	File
-  0.2947   67  -2.8479  -2.5532    2.00    0.00 OUTCAR
-
-Y k4
-login-1:k4$ bandgap OUTCAR
-Gap	Band#	VBM	CBM	VBM-occ	CBM-occ	File
- -0.0001   54  -3.3080  -3.3081    2.01    0.00 OUTCAR
