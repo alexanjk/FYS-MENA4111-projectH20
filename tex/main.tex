@@ -173,27 +173,6 @@ And then later you can call:
 
 %---------------------------------------------------------------------------------
 
-\textbf{Ting å ha i \LaTeX:}
-\begin{itemize}
-    \item abstrakt
-    \subitem \textbf{done}
-    \item kort introduksjon av materialet
-    \subitem \textbf{done}
-    \item kort om metode, valg av paramtere (CUTOFF, etc)
-    \subitem \textbf{done}
-    \item presentasjon av de viktigste resultatene
-    \subitem \textbf{done}
-    \item diskusjon av hvordan resultatene kan tolkes, f.eks. sammenligne til eksperimenter eller tidligere beregninger i litteraturen
-    \subitem \textbf{WIP}
-    \item konklusjon/oppsummering
-    \item kilder
-    \item appendix ?
-\end{itemize}
-
-\vspace{1cm}
-
-\textbf{\large{OBS: husk å lagre bilder for rapporten og presentasjonen mens man gjør beregningene}}
-
 \section{Introduction}  \label{sec:Introduction}
 
     Photons can be used for many things. However, not all photons are created equal. They come in many different energies, and not all energies are as simple to absorb. A way to increase the efficiency of photon-absorbing materials is by modifying it so that it can absorb photons with a low energy, collect that energy, and re-emit the photon with higher energy. This is known as up-conversion and has many uses. One use is to increase the efficiency of solar panels by allowing it to collect more of the sunlight, where the up-conversion system can be a thin-film on the top of the panel. A different use is to increase the energy to the point where the emitted photon can become ionizing and work as a bacteria or virus killer.\\
@@ -259,7 +238,7 @@ And then later you can call:
 
   \subsection{Charge density}
 
-    The charge density of a structure shows how the charge is distributed around the atoms in that structure. A plot of the charge density therefore shows how many electrons the different atoms attract. To plot the charge density the file CHGCAR, after a completed VASP calculation, is copied over to VESTA, and then visualized.
+    The charge density of a structure shows how the charge is distributed around the atoms in that structure. A plot of the charge density therefore shows how many electrons the different atoms attract. To plot the charge density the file CHGCAR, after a completed VASP calculation, is copied over to VESTA, and then visualized. Because the image from VESTA shows some of the molecules charge density, but not all of it. THe different parts were combined using an image editor to creates images that would display the complete charge density for a single molecule, which is more useful for discussions than showing the charge density inside the unit cell from VASP.
 
 
 \vspace{1cm}
@@ -514,7 +493,7 @@ And then later you can call:
 
     \subsubsection{Total and local density of states}
 
-      TDOS and LDOS graphs are shown below. Figure~(\ref{fig:Y_TDOS_2}) shows the total DOS for Quinizarin with Yttrium, whilst Figure~(\ref{fig:Y_LDOS25_2}) shows the local DOS for the lower Yttrium atom and Figure~(\ref{fig:Yb_LDOS25_2}) shows the local DOS for the upper Yttrium atom.
+      TDOS and LDOS graphs are shown below. Figure~(\ref{fig:Y_TDOS_2}) shows the total DOS for Quinizarin with Yttrium, whilst Figure~(\ref{fig:Y_LDOS25_2}) shows the local DOS for the lower Yttrium atom and Figure~(\ref{fig:Y_LDOS25_2}) shows the local DOS for the upper Yttrium atom.
       The full pictures of these plots, see Figure (\ref{fig:Y_TDOS_1}), Figure (\ref{fig:Y_LDOS25_1}) and Figure (\ref{fig:Y_LDOS26_1}) in \nameref{sec:Appendix}. \\
 
       \begin{figure}[H]
@@ -761,16 +740,15 @@ And then later you can call:
 
     There were fewer data points than with the energy convergence, so it is not as easy to find a pattern as it was with the convergence of energy. For Figure~(\ref{fig:convergence_kpoints}) one can see the energy increases to a peak around 4.0 and 5.0 in k-density, which then decreases at k-density 6.0. Due to the lack of a good pattern we quickly moved on to Figure~(\ref{fig:convergence_kpoints_difference}) which showed even less of a converging pattern. However, already at k-density 1.0 we could see the difference was less than 0.003 eV. Since the difference increased again with 2.0, we wondered if we could use 3.0, but after a few test-calculations with both 1.0 and 3.0 we found the difference was negligible and so we chose to use 1.0. \\
 
-
   \subsection{Quinizarin}
 
     Figure (\ref{fig:basic_staticbefore_CONTCAR}) and Figure (\ref{fig:basic_staticafter_CONTCAR}) compares how the Quinizarin structure differs from before and after a relaxing computation. By examining the figures, there are virtually no difference to be seen. However, Table (\ref{tab:neighborquinizarin}) shows that there actually are a difference. Before relax, the Hydrogen-atoms are at a distance of about 1.75 Å to the double-bonded Oxygen-atoms and at about 0.95 Å to the single-bonded Oxygen-atoms. After relax, the distance has shrunk substantially to the double-bonded Oxygen-atoms to about 1.58 Å. On the contrary has the distances to the single-bonded Oxygen-atoms increased to about 1.03 Å, therefore the change is not as large as for the double-bonded distance. These changes implies a shift of the placement of the Hydrogen-atoms, where they now are closer to the double-bonded Oxygen-atoms than the single-bonded. This shift is explained by that Quinizarin has a resonance structure. A resonance structure implies that an atom has the possibility to shift placement in the structure. In this case for Quinizarin, this means that the Hydrogen-atoms can shift between the double-bonded Oxygen and the single-bonded Oxygen in the alcohol group. Such a shift has another implication, namely that the bond between the Oxygen-atoms and the Carbon-atoms change. For instance if the Hydrogen-atom has a shift further to the left, therefore shorter distance to the double-bonded Oxygen, will the Oxygen-bond to the Carbon have to change to a single-bond to maintain that Oxygen only can share to bonds. The Oxygen in the, now former, alcohol group then has a dangling bond, and forms a double-bond with the Carbon. For this to happen the activation energy has to be enough to break both the single-bond and the double-bond. We do not know the activation energy for Quinizarin, and could not examine when this change in structure forms in this project. However, this is interesting to study for another project. \\
 
     Table (\ref{tab:TOTENquinizarin}) shows the total energies before and after the relax computation. The total energy after relax is less than before, which is in accordance to that a relaxing computation should make the structure more stable, implying a smaller total energy. The relative energy difference is $-0.015$ eV. \\
 
-    The total density of states shows that there are no half-filled bands, as the fermi level is not inside a band / an orbital. This indicates a lack of unpaired electrons and could tell us that it is diamagnetic. Figure~(\ref{fig:basic_TDOS_2}) also shows that further up there are a lot of orbitals connected which means a broad band that can absorb a lot of different photon energies. This is important for a sensitizer to be able to absort many wavelengths so this is good. \\
+    The total density of states shows that there are no half-filled bands, as the fermi level is not inside a band / an orbital. This indicates a lack of unpaired electrons and could tell us that it is diamagnetic. Figure~(\ref{fig:basic_TDOS_2}) also shows that further up there are a lot of orbitals connected which means a broad band that can absorb a lot of different photon energies. This is important for a sensitizer to be able to absort many wavelengths so this is good. LDOS shows that there is not much going on as there are only a few orbitals that Hydrogen use. p and s both contribute about the same amount, which is not to strange as 1s and 1p are fairly close. These figures are almost identical and proves how the upper and lower Hydrogen-atoms have symmetrically equal environments. \\
 
-    In Figure~(\ref{fig:basic_TDOS_2}) we see a band gap from approximately $-0.25$ eV to $1$ eV (scaled to the fermi level). Looking in EIGENVAL we can see a fully occupied band at $-5.31$ eV to a completely empty band at $-3.72$ eV. This corresponds to a band gap of $1.59$ eV, which is not completely in agreement with the figure of DOS, but also not that far off. A band gap of $1.59$ eV is a semiconductor. This size of band gap means it is quite unlikely for an incoming photon to be re-emitted as phonon vibrations. It will more likely be re-emitted as a photon or, in an up-conversion, be led into the system it self. This is good, and indicates that Quinizarin will not quench any incoming photons. \\
+    In Figure~(\ref{fig:basic_TDOS_2}) we see a band gap from approximately $-0.25$ eV to $1$ eV (scaled to the fermi level). Looking in EIGENVAL we can see a fully occupied band at $-5.31$ eV to a completely empty band at $-3.72$ eV. This corresponds to a band gap of $1.59$ eV, which is not completely in agreement with the figure of DOS, but also not that far off. A band gap of $1.59$ eV corresponds to a semiconductor. This size of band gap means it is quite unlikely for an incoming photon to be re-emitted as phonon vibrations. It will more likely be re-emitted as a photon or, in an up-conversion, be led into the system it self. This is good, and indicates that Quinizarin will not quench any incoming photons. \\
 
     As for the change in the structure before and after relaxation, the charge density has also not changed much. Figure (\ref{fig:basic_staticbefore_CHGCAR}) and Figure (\ref{fig:basic_staticafter_CHGCAR}) displays the charge density for before relax and after relax, respectively. Table (\ref{tab:neighborquinizarin}) shows that the Hydrogen-atoms move some, but this is not possible to see in the charge density figures either. \\
 
@@ -784,8 +762,7 @@ And then later you can call:
 
     The band gap was reported to be $0.029$ eV as shown in Table~(\ref{tab:bandgapY}). This is very small and less trustworthy than looking at the density of states. If we observe the density of states there seems to be a bang gap from around 0.25 to 0.75 eV (scaled to Fermi level. Looking in EIGENVAL from the static calculation after relaxation we can see there is a band gap from -3.57 (100\% occupied) to -2.98 (58.1\% occupied). This is a band gap of 0.59 eV, which corresponds fairly well to the gap found in Figure~(\ref{fig:Y_TDOS_2}). This band gap would correspond with a semiconductor, and from gut instinct will likely rather emit the energy absorbed as a photon rather as phonon vibrations. This is good as phonon vibrations will lead to quenching, reducing the efficiency of the up-conversion system. This tells us that a if Quinizarin is embedded in a matrix of YF3 it will likely not quench absorbed photons, and work well as a sensitizer. \\
 
-    \textbf{CHARGE DENSITY} \\
-
+    Figure (\ref{fig:Y_staticbefore_CHGCAR}) and Figure (\ref{fig:Y_staticafter_CHGCAR}) shows the charge density before relaxation and after relaxation, respectively. As for the basic Quinizarin are there virtually no difference between the two pictures. \\
 
   \subsection{Quinizarin with Ytterbium}
 
@@ -793,42 +770,33 @@ And then later you can call:
 
     The total energy of the system changes minimally, but it is more net negative after the relax calculation. Table (\ref{tab:TOTENYb}) shows the total energy before and after the relaxation. The relative energy is a $-0.013$ eV difference. Quinizarin with Ytterbium is therefore more stable after relaxation. \\
 
-    Figure~(\ref{fig:Yb_TDOS_2}) shows the density of states for Quinizarin with Ytterbium. Immediately we see that the fermi level is inside a bond which again can indicate unpaired electrons and the molecule being weakly paramagnetic. After around $1.8$ eV there seems to be a very wide band going all the way up to and past $3$ eV. A small dip around $2.5$ eV, but not a complete gap. This is incredibly good as it means the molecule might absorb photons for the whole spectrum of available light. \\
+    Figure~(\ref{fig:Yb_TDOS_2}) shows the density of states for Quinizarin with Ytterbium. Immediately we see that the Fermi level is inside a bond which again can indicate unpaired electrons and the molecule being weakly paramagnetic. After around $1.8$ eV there seems to be a very wide band going all the way up to and past $3$ eV. A small dip around $2.5$ eV, but not a complete gap. This is incredibly good as it means the molecule might absorb photons for the whole spectrum of available light. The LDOS figures show that d-orbitals contribute the most, while s-orbitals the least, with p-orbitals between those two. There is a massive f-orbital right near the Fermi level. These are also identical between the upper and lower Ytterbium atoms. \\
 
-    There seems to be a band gap from around $0.33$ eV to $1.2$ eV. In EIGENVAL we see that there is a fully occupied band at $-3.05$ eV, and the next band is at $2.72$ eV and is $67\%$ occupied. This corresponds to
+    There seems to be a band gap from around $0.33$ eV to $1.2$ eV. In EIGENVAL we see that there is a fully occupied band at $-3.05$ eV, and the next band is at $2.72$ eV and is $67\%$ occupied. This corresponds to a band gap of $0.33$ eV. This is quite low and would correspond to a metallic semiconductor in gap size. This is fairly low and could mean that optical phonon vibrations are possible. This could indicate that though Quinizarin with Yb works very well as a sensitizer it could also participate in quenching. This means that the excited electron has to be moved quickly, in order to avoid de-excitation and loss in efficiency. \\
 
-
-
-
+    The charge density for Quinizarin with Ytterbium is shown in Figure (\ref{fig:Yb_staticbefore_CHGCAR}) and Figure (\ref{fig:Yb_staticafter_CHGCAR}), where they show before relaxation and after relaxation, respectively. Similarly with the other Quinizarin-structures are there no visible changes between these two pictures. This is because the atoms themselves does not change electronegativity before and after a relaxation. \\
 
   \subsection{Quinizarin with Neodymium and Thulium}
 
-    \textbf{\textit{MANGLER TEKST}}
-
-    We attempted to perform relaxation and evaluation of Quinizarin with Neodymium and Thulim as well. Initially we attempted with the relaxed Hydrogen-system as POSCAR for these atoms, but the distance was way to low. This resulted in an explosion of the molecule a lack of relaxation. We then tried to relax with more electronic steps, but this did not help. This was also the case for Y and Yb initially. After using around 2.3 Å as distance (after looking at various solid structures on ICSD) we managed to get a relaxed structure for Y and Yb. However, this was not the case for Nd and Tm. We then tried to increase the amount of electronic steps, NELM, to 300, without success. We cross-checked some Nd-structures on ICSD, but 2.3 Å seemed reasonable to use. After a final attempt with IBRION=2 and POTIM=0.2 we hoped for a better result. This was not the case, as after 3 hours it still had not converged. We weighed our options of either increasing the maximum time, or to stop trying with Nd and Tm. After a talk with our supervisors we decided to only report for Y and Yb. \\
-
+    We attempted to perform relaxation and evaluation of Quinizarin with Neodymium and Thulium as well. Initially we attempted with the relaxed Hydrogen-system as POSCAR for these atoms, but the distance was way to low. This resulted in an explosion of the molecule a lack of relaxation. We then tried to relax with more electronic steps, but this did not help. This was also the case for Y and Yb initially. After using around 2.3 Å as distance (after looking at various solid structures on ICSD) we managed to get a relaxed structure for Y and Yb. However, this was not the case for Nd and Tm. We then tried to increase the amount of electronic steps, NELM, to 300, without success. We cross-checked some Nd-structures on ICSD, but 2.3 Å seemed reasonable to use. After a final attempt with IBRION=2 and POTIM=0.2 we hoped for a better result. This was not the case, as after 3 hours it still had not converged. We weighed our options of either increasing the maximum time, or to stop trying with Nd and Tm. After a talk with our supervisors we decided to only report for Y and Yb. \\
 
   \subsection{Total comparison}
 
-    \textbf{\textit{MANGLER TEKST}}
+    First of all we can see that the Hydrogen-Oxygen distance is much lower than the Yttrium-Oxygen distances and the Ytterbium-Oxygen distances. This makes a lot of sense as Hydrogen is incredibly small in comparison. Beyond this we see that Yttrium-Oxygen has a smaller distance than Ytterbium-Oxygen. This is likely due to Ytterbium's large size from f-orbitals. \\
 
-    \begin{enumerate}
-        \item Atom distances
-        \item Total and Relative energies
-        \item change in band gap and location of band gap
-        \item change in DOS
-        \item compare electronegativity between the atoms
-    \end{enumerate}
+    Quinizarin had a total energy per atom of $-7.034$ eV, which gives Quinizarin with Yttrium a relative energy of $0.242$ eV. This shows that normal Quinizarin is more stable. However, exchanging Hydrogen with Yttrium should not be to energy-intensive. Quinizarin with Ytterbium has a relative energy to normal Quinizarin of $-0.152$ eV, and $-0.394$ eV versus Quinizarin with Yttrium. This shows that even though Ytterbium is a large atom that can seem unwieldy, it is quite stable in Quinizarin. This can mean the an up-conversion system in a YbF3-matrix with Quinizarin as a sensitizer is quite stable. At the same time, this low relative energy could be attributed to the fact that the initial POSCAR was made with Yb in mind, meaning that it is easier to relax the structure with Yb than with Y. However, a quick check of vaspout for both static calculations after ionic relaxation show that the max force of Quinizarin with Yb is $0.1660$, wheras Quinizarin with Y has a max force of $0.0354$. This shows that they are both very relaxed, and that the low relative energy of Ytterbium is in fact trustworthy. \\
 
+    Comparing the densities of states for the different molecules we observe that normal Quinizarin is quite boring when it comes to LDOS due to Hydrogen not having a lot of orbitals to contribute with. There is a wide band around $5$ eV which can be utilized for sensitization. Here Quinizarin with Yttrium has a narrow band for the same use-case. Ytterbium has an extremely wide band that functions well for sensitizatin. LDOS shows that more action for Yttrium and Ytterbium, with d-orbitals participating a lot. For Ytterbium the f-orbital is very high, and but is below the Fermi level so is not as interesting as its d-orbitals above the Fermi level. \\
 
+    Normal Quinizarin shows a band gap of $1.59$ eV, whilst Quinizarin with Yttrium shows a band gap of $0.59$ eV, and Quinizarin with Ytterbium an even lower gap with $0.33$ eV. This shows how changing the atom on the Oxygen bridge impacts the band gap in major way. The lower band gaps indicates a higher risk of optical phonon vibrations rather than an emitted photon, but as long as the excited electron gets to move away quickly this issue should be minimized. The smaller size of band gaps also show that they can absorb photons with lower energy, but this is only useful if they can be transferred in the up-conversion system and utilized for the actual up-conversion. \\
 
+    Comparing the charge density for before and after relaxation for the three Quinizarin structures proved to be of little interest, however the comparison between the structures illustrates the difference in the substitutional atoms. Figure (\ref{fig:basic_staticafter_CHGDENSITY}), Figure (\ref{fig:Y_staticafter_CHGDENSITY}) and Figure (\ref{fig:Yb_staticafter_CHGDENSITY}) shows the charge density for molecules of Quinizarin, Quinizarin with Yttrium, and Quinizarin with Ytterbium, respectively. These pictures are after a relax computation. The booklet \textit{Gyldendals tabeller og formler i kjemi : kjemi 1 og kjemi 2} has an overview of the electronegativities for multiple atoms. This says that the electronegativity of Oxygen is 3.5, for Hydrogen is 2.1, for Carbon is 2.5, for Yttrium is 1.2, and for Yb is 1.1 \cite{kjemibok}. The charge density for Quinizarin and Quinizarin with Yttrium is mostly in accordance with this. The Oxygen-atoms are the most electronegative, so they should have the highest charge density, which is correct from the images. However, Quinizarin with Ytterbium is not in accordance with the electronegativity of the atoms. The Ytterbium-atoms are very large in comparison to the other atoms, so it is difficult to see what charge density they have. The Oxygen-atoms and the Carbon-atoms should nonetheless have a much higher charge density than what is depicted in the figures. In these figures they have a very dark blue color, which means very small charge density. Therefore, we theorize that the Ytterbium-atoms have a very high charge density, which we cannot see. This is however not at all in accordance with the electronegativities. Ytterbium has the lowest electronegativity of all the atoms listed above, and should not have a high charge density. We concluded from this that something must have gone wrong with the computation of the charge density, which we do not know what is. \\
 
 \vspace{1cm}
 
 \section{Conclusion}    \label{sec:Conclusion}
 
-  \textbf{\textit{MANGLER TEKST}}
-
+  After gaining insight into performing calculations with VASP, we moved on to performing convergence tests. This showed that a cutoff energy of $450$ eV was sufficient, and a k-density of $1.0$ worked well. There were some issues with relaxing the structures of Yttrium and Ytterbium, but these were resolved after searching up atomic distance data for various bulk compounds. Of all three systems, Ytterbium seemed most stabile in energy. This was surprising, but not unwelcome, as Ytterbium also proved to have a wide band gap ideal for absorbing a wide spectrum of photons. Yttrium had a narrower band gap, which could prove unhelpful. When band gaps were looked into Yttriums gap of $0.59$ seemed large enough to avoid de-exications by optical phonon vibrations, but this was more worrying for Ytterbium which showed a band gap of $0.33$ eV. However, as long as photons that create these phonon vibrations are avoided, and the excited electrons are moved fast enough away this should be a small issue with efficiency of the up-conversion system. Charge density seemed quite of for Ytterbium which also can be a problem. However, in total, Ytterbium seems like an atom with so many positives that it is at least worth testing the up-conversion system with it, before exploring other options. Yttrium will be interesting to investigate as a different option.
 
 %--------------------- References --------------------------------------------
 \vspace{1cm}
@@ -837,8 +805,17 @@ And then later you can call:
 
     \begin{thebibliography}{}
 
-    \bibitem{laereboken}
-    Ben G. Streetman \& Sanjay Kumar Banerjee, 2016, \textit{Solid State Elctronic Devices seventh edition}, Pearson Education
+    \bibitem{kjemibok}
+    Bjørn-Gunnar Steen, 2009, \textit{Gyldendals tabeller og formler i kjemi : kjemi 1 og kjemi 2}, Gyldendal undervisning.
+
+    \bibitem{github}
+    Erlend Tiberg North, Alexandra Jahr Kolstad, 2020, \url{https://github.com/alexanjk/FYS-MENA4111-projectH20}, \textit{Github repository with figures and python-scripts for graph-plotting and LaTeX files}, University of Oslo.
+
+    \bibitem{saga}
+    Erlend Tiberg North, Alexandra Jahr Kolstad, 2020, \textit{Saga directory with all runs and raw data, /cluster/projects/nn9989k/quinizarin\_AJK\_ETN/}, University of Oslo \& Sigma2.
+
+    \bibitem{icsd}
+     FIZ Karlsruhe, 2020, \url{https://icsd-fiz-karlsruhe-de.ezproxy.uio.no/display/list.xhtml}, ICSD.
 
 
     \end{thebibliography}
@@ -850,7 +827,7 @@ And then later you can call:
 
 \section*{Appendix} \label{sec:Appendix}
 
-\section{Quinizarin-bilder}
+\section{Quinizarin-pictures}
 
   \begin{figure}[H]
       \centering
@@ -875,7 +852,7 @@ And then later you can call:
 
 \vspace{1cm}
 
-\section{Y-bilder}
+\section{Y-pictures}
 
   \begin{figure}[H]
       \centering
@@ -900,7 +877,7 @@ And then later you can call:
 
 \vspace{1cm}
 
-\section{Yb-bilder}
+\section{Yb-pictures}
 
   \begin{figure}[H]
       \centering
