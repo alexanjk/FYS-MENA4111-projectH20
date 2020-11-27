@@ -202,16 +202,14 @@ And then later you can call:
 
     This paper will focus on an organic compound known as Quinizarin. The compound is an organic dye and has a broad energy band. This means it can absorb a broad spectrum of photons energies. The excited electrons from this energy band can move to the actual up-conversion system and hereby increase the efficiency of the up-conversion. The planned up-conversion system will consist of Quinizarin as an organic sensitizer, Nd+3 and Yb+3 as electron migrators (transporting the electrons to the site of de-excitation), and Tm+3 as accumulator and activator (collecting excited electrons and up-converting them, and de-excitation site for said electrons). The system is planned to be inserted into a matrix of YbF3 or possibly YF3.\\
 
-    Since Quinizarin is such an important piece of the system it is wise to know how it interacts with the other materials. This study will therefore investigate how Quinizarin's electronic band structure changes when the Hydrogen in the alcohol group is replaced with different atoms. In this case: Yb, Nd, Tm and Y. See %figure~(\ref{fig:Quinizarin-X} for an illustration).\\
+    Since Quinizarin is such an important piece of the system it is wise to know how it interacts with the other materials. This study will therefore investigate how Quinizarin's electronic band structure changes when the Hydrogen in the alcohol group is replaced with different atoms. In this case: Yb, Nd, Tm and Y. See figure~(\ref{fig:Quinizarin-X} for an illustration).\\
 
-\iffalse
     \begin{figure}[H]
         \centering
-        \includegraphics[width = 11cm]{../fig/quinizarin-x.png}
+        \includegraphics[width = 5cm]{../fig/quinizarin-x.png}
         \caption{Molecular structure of Quinizarin with H in -OH replaced with atom X. X can be H, Y, Yb, Nd or Tm. Structure drawn with online illustrator from \href{https://chem-space.com/search}{Chem-Space}.}
         \label{fig:Quinizarin-X}
     \end{figure}
-\fi
 
 \vspace{1cm}
 
@@ -318,6 +316,8 @@ And then later you can call:
 
       After relaxing the structure and performing a new static calculation, CONTCAR looked as shown in Figure~(\ref{fig:basic_staticafter_CONTCAR}). We do not show CONTCAR from the actual ionic relaxation as it is identical to the post-relaxation static calculation. \\
 
+      Table~(\ref{tab:neighborquinizarin}) shows how the distance between Hydrogen and Oxygen changes from before and after relax. \\
+
       \begin{figure}[H]
         \centering
         \includegraphics[width = \textwidth]{../fig/basic_staticbefore_CONTCAR.png}
@@ -332,11 +332,28 @@ And then later you can call:
         \label{fig:basic_staticafter_CONTCAR}
       \end{figure}
 
+      \begin{table}[H]
+        \centering
+        \caption{Hydrogen-Oxygen distances. 2x-bonded Oxygen is the central Oxygen atom, which is has a double bond to carbon. 1x-bonded Oxygen is part of the alcohol-group. The values marked with * were not located in OUTCAR, and so were fetched from VESTA. }
+        \label{tab:neighborquinizarin}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Calculation & Distance to 2x-bonded Oxygen [Å] & Distance to 1x-bonded Oxygen [Å] \\
+            \hline \hline
+            Before relax lower Hydrogen & $1.73$* & $0.93$ \\
+            Before relax upper Hydrogen & $1.76$* & $0.97$ \\
+            After relax lower Hydrogen & $1.57$* & $1.03$ \\
+            After relax upper Hydrogen & $1.59$* & $1.02$ \\
+            \hline
+        \end{tabular} \\
+        \hspace{0pt}\\
+      \end{table}
+
       \vspace{1cm}
 
     \subsubsection{Total and relative energies}
 
-      As can be seen in Table~(\ref{tab:TOTENquinizarin}), there was a difference in total energies. This turned out to be 0.015 eV in relative energy difference. The data is taken from static calculations of Quinizarin, before and after a relax VASP calculation. \\
+      As can be seen in Table~(\ref{tab:TOTENquinizarin}), there was a difference in total energies. This turned out to be -0.015 eV in relative energy difference. The data is taken from static calculations of Quinizarin, before and after a relax VASP calculation. \\
 
       \begin{table}[H]
         \centering
@@ -363,21 +380,21 @@ And then later you can call:
       \begin{figure}[H]
         \centering
         \includegraphics[width = 11cm]{../fig/basic_TDOS_2.png}
-        \caption{Plot of total DOS for Quinizarin, zoomed in for energies between 4.0 eV and 8.0 eV. }
+        \caption{Plot of total DOS for Quinizarin, zoomed in for energies around the fermi level (set to 0 eV). }
         \label{fig:basic_TDOS_2}
       \end{figure}
 
       \begin{figure}[H]
         \centering
         \includegraphics[width = 11cm]{../fig/basic_LDOS25_2.png}
-        \caption{Plot of local DOS for atom number 25(H in alcohol-group) for Quinizarin, zoomed in for energies between 4.0 eV and 8.0 eV. }
+        \caption{Plot of local DOS for atom number 25(H in alcohol-group) for Quinizarin, zoomed in for energies around the fermi level (set to 0 eV). }
         \label{fig:basic_LDOS25_2}
       \end{figure}
 
       \begin{figure}[H]
         \centering
         \includegraphics[width = 11cm]{../fig/basic_LDOS26_2.png}
-        \caption{Plot of local DOS for atom number 26(H in alcohol-group) for Quinizarin, zoomed in for energies between 4.0 eV and 8.0 eV. }
+        \caption{Plot of local DOS for atom number 26(H in alcohol-group) for Quinizarin, zoomed in for energies around the fermi level (set to 0 eV). }
         \label{fig:basic_LDOS26_2}
       \end{figure}
 
@@ -438,6 +455,8 @@ And then later you can call:
 
       Below we can see the structure of Quinizarin with Yttrium. Figure~(\ref{fig:Y_staticbefore_CONTCAR}) shows it as it is before relaxing the structure, and Figure (\ref{fig:Y_staticafter_CONTCAR}) shows the structure after having been relaxed. \\
 
+      In Table~(\ref{tab:neighborY}) we can see Yttrium's distance to oxygen, both before and after relaxing the structures. \\
+
       \begin{figure}[H]
         \centering
         \includegraphics[width = \textwidth]{../fig/Y_staticbefore_CONTCAR.png}
@@ -452,11 +471,28 @@ And then later you can call:
         \label{fig:Y_staticafter_CONTCAR}
       \end{figure}
 
+      \begin{table}[H]
+        \centering
+        \caption{Yttrium-Oxygen distances. 2x-bonded Oxygen is the central Oxygen atom, which is has a double bond to carbon. 1x-bonded Oxygen is part of the alcohol-group. }
+        \label{tab:neighborY}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Calculation & Distance to 2x-bonded Oxygen [Å] & Distance to 1x-bonded Oxygen [Å]  \\
+            \hline \hline
+            Before relax lower Yttrium & $2.32$ & $2.31$ \\
+            Before relax upper Yttrium & $2.32$ & $2.32$ \\
+            After relax lower Yttrium & $2.02$ & $2.01$ \\
+            After relax upper Yttrium & $2.02$ & $2.01$ \\
+            \hline
+        \end{tabular} \\
+        \hspace{0pt}\\
+      \end{table}
+
       \vspace{1cm}
 
     \subsubsection{Total and relative energies}
 
-      Table~(\ref{tab:TOTENY}) shows the total energy per atom for Quinizarin with Yttrium, with calculations done by static calculations before and after a relax calculations. \\
+      Table~(\ref{tab:TOTENY}) shows the total energy per atom for Quinizarin with Yttrium, with calculations done by static calculations before and after a relax calculation. The relative energy was $-0.109$ eV/atom. \\
 
       \begin{table}[H]
         \centering
@@ -484,21 +520,21 @@ And then later you can call:
       \begin{figure}[H]
         \centering
         \includegraphics[width = 11cm]{../fig/Y_TDOS_2.png}
-        \caption{Plot of total DOS for Yttrium, zoomed in for energies between 0.0 eV and 4.5 eV. }
+        \caption{Plot of total DOS for Yttrium, zoomed in for energies around the fermi level (set to 0 eV). }
         \label{fig:Y_TDOS_2}
       \end{figure}
 
       \begin{figure}[H]
         \centering
         \includegraphics[width = 11cm]{../fig/Y_LDOS25_2.png}
-        \caption{Plot of local DOS of atom number 25(Y in lower alcohol-group) for Quinizarin with Yttrium, zoomed in for energies between 0.0 eV and 4.5 eV. }
+        \caption{Plot of local DOS of atom number 25(Y in lower alcohol-group) for Quinizarin with Yttrium, zoomed in for energies around the fermi level (set to 0 eV). }
         \label{fig:Y_LDOS25_2}
       \end{figure}
 
       \begin{figure}[H]
           \centering
           \includegraphics[width = 11cm]{../fig/Y_LDOS26_2.png}
-          \caption{Plot of local DOS of atom number 26(Y in upper alcohol-group) for Quinizarin with Yttrium, zoomed in for energies between 0.0 eV and 4.5 eV. }
+          \caption{Plot of local DOS of atom number 26(Y in upper alcohol-group) for Quinizarin with Yttrium, zoomed in for energies around the fermi level (set to 0 eV). }
           \label{fig:Y_LDOS26_2}
       \end{figure}
 
@@ -559,6 +595,8 @@ And then later you can call:
 
       Quinizarin with Ytterbium before relaxation is shown in Figure~(\ref{fig:Yb_staticbefore_CONTCAR}). After relaxation the structure looked as in Figure~(\ref{fig:Yb_staticafter_CONTCAR}). \\
 
+      OUTCAR can display the nearest neighbors, which is the atomic distance between the atoms in the structure. In Table~(\ref{tab:neighborYb}) below, the Ytterbium and Oxygen distances is shown. \\
+
       \begin{figure}[H]
         \centering
         \includegraphics[width = \textwidth]{../fig/Yb_staticbefore_CONTCAR.png}
@@ -572,6 +610,24 @@ And then later you can call:
         \caption{Structure of Quinizarin with Ytterbium for static VASP calculation after relaxed calculation. }
         \label{fig:Yb_staticafter_CONTCAR}
       \end{figure}
+
+      \begin{table}[H]
+        \centering
+        \caption{Ytterbium-Oxygen distances. 2x-bonded Oxygen is the central Oxygen atom, which is has a double bond to carbon. 1x-bonded Oxygen is part of the alcohol-group. }
+        \label{tab:neighborYb}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            Calculation & Distance to 2x-bonded Oxygen [Å] & Distance to 1x-bonded Oxygen [Å]  \\
+            \hline \hline
+            Before relax lower Ytterbium & $2.32$ & $2.31$ \\
+            Before relax upper Ytterbium & $2.32$ & $2.32$ \\
+            After relax lower Ytterbium & $2.08$ & $2.07$ \\
+            After relax upper Ytterbium & $2.08$ & $2.07$ \\
+            \hline
+        \end{tabular} \\
+        \hspace{0pt}\\
+      \end{table}
+
 
       \vspace{1cm}
 
@@ -598,28 +654,28 @@ And then later you can call:
 
     \subsubsection{Total and local density of states}
 
-      Figure~(\ref{fig:Yb_TDOS_2}) shows the total DOS of Quinizarin with Ytterbium. Figure~(\ref{fig:Yb_LDOS25_2}) and Figure~(\ref{fig:Yb_LDOS26_2}) respectively show the local DOS of the lower and upper Ytterbium atoms.
-      In addition, to see the uncropped figures, see Figure~(\ref{fig:Yb_TDOS_1}), Figure~(\ref{fig:Yb_LDOS25_1}) and Figure~(\ref{fig:Yb_LDOS26_1}) in \nameref{sec:Appendix}. \\
+      Figure~(\ref{fig:Yb_TDOS_2}) shows the total DOS of Quinizarin with Ytterbium. Figure~(\ref{fig:Yb_LDOS25_3}) and Figure~(\ref{fig:Yb_LDOS26_3}) respectively show the local DOS of the lower and upper Ytterbium atoms. The f-orbital is cut of due to being so high (around 50).
+      In addition, to see the uncropped figures, see Figure~(\ref{fig:Yb_TDOS_1}), Figure~(\ref{fig:Yb_LDOS25_1}) and Figure~(\ref{fig:Yb_LDOS26_1}) in \nameref{sec:Appendix}.\\
 
       \begin{figure}[H]
         \centering
         \includegraphics[width = 11cm]{../fig/Yb_TDOS_2.png}
-        \caption{Plot of total DOS for Ytterbium, zoomed in for energies between 0.0 eV and 8.0 eV. }
+        \caption{Plot of total DOS for Ytterbium, zoomed in for energies around the fermi level (set to 0 eV). }
         \label{fig:Yb_TDOS_2}
       \end{figure}
 
       \begin{figure}[H]
           \centering
-          \includegraphics[width = 11cm]{../fig/Yb_LDOS25_2.png}
-          \caption{Plot of local DOS of atom number 25(Yb in lower alcohol-group) for Quinizarin with Ytterbium, zoomed in for energies between 0.0 eV and 8.0 eV. }
-          \label{fig:Yb_LDOS25_2}
+          \includegraphics[width = 11cm]{../fig/Yb_LDOS25_3.png}
+          \caption{Plot of local DOS of atom number 25(Yb in lower alcohol-group) for Quinizarin with Ytterbium, zoomed in for energies around the fermi level (set to 0 eV). }
+          \label{fig:Yb_LDOS25_3}
       \end{figure}
 
       \begin{figure}[H]
           \centering
-          \includegraphics[width = 11cm]{../fig/Yb_LDOS26_2.png}
-          \caption{Plot of local DOS of atom number 26(Yb in upper alcohol-group) for Quinizarin with Ytterbium, zoomed in for energies between 0.0 eV and 8.0 eV. }
-          \label{fig:Yb_LDOS26_2}
+          \includegraphics[width = 11cm]{../fig/Yb_LDOS26_3.png}
+          \caption{Plot of local DOS of atom number 26(Yb in upper alcohol-group) for Quinizarin with Ytterbium, zoomed in for energies around the fermi level (set to 0 eV). }
+          \label{fig:Yb_LDOS26_3}
       \end{figure}
 
       \vspace{1cm}
@@ -675,7 +731,7 @@ And then later you can call:
 
   \subsection{Quinizarin with Neodymium and Thulium}
 
-    We made an attempt to relax the structure with Neodymium and Thulium. This was abandoned, but below, in Figure~(\ref{fig:Nd_relax_CONTCAR}) one can see how one of the attempts at relaxation went. Figure~(\ref{fig:Nd_relax_new_CONTCAR}) shows CONTCAR from a different relaxation attempt. \\
+    We made an attempt to relax the structure with Neodymium and Thulium. This was abandoned, but below, in Figure~(\ref{fig:Nd_relax_CONTCAR}) one can see how one of the attempts at relaxation went. Figure~(\ref{fig:Nd_relax_new_CONTCAR}) shows CONTCAR from a different relaxation attempt. It is worth noting that the unit cells are the same size, but the images were saved with different sizes. \\
 
       \begin{figure}[H]
         \centering
@@ -708,27 +764,57 @@ And then later you can call:
 
   \subsection{Quinizarin}
 
-    \textbf{\textit{MANGLER TEKST}}
+    Figure (\ref{fig:basic_staticbefore_CONTCAR}) and Figure (\ref{fig:basic_staticafter_CONTCAR}) compares how the Quinizarin structure differs from before and after a relaxing computation. By examining the figures, there are virtually no difference to be seen. However, Table (\ref{tab:neighborquinizarin}) shows that there actually are a difference. Before relax, the Hydrogen-atoms are at a distance of about 1.75 Å to the double-bonded Oxygen-atoms and at about 0.95 Å to the single-bonded Oxygen-atoms. After relax, the distance has shrunk substantially to the double-bonded Oxygen-atoms to about 1.58 Å. On the contrary has the distances to the single-bonded Oxygen-atoms increased to about 1.03 Å, therefore the change is not as large as for the double-bonded distance. These changes implies a shift of the placement of the Hydrogen-atoms, where they now are closer to the double-bonded Oxygen-atoms than the single-bonded. This shift is explained by that Quinizarin has a resonance structure. A resonance structure implies that an atom has the possibility to shift placement in the structure. In this case for Quinizarin, this means that the Hydrogen-atoms can shift between the double-bonded Oxygen and the single-bonded Oxygen in the alcohol group. Such a shift has another implication, namely that the bond between the Oxygen-atoms and the Carbon-atoms change. For instance if the Hydrogen-atom has a shift further to the left, therefore shorter distance to the double-bonded Oxygen, will the Oxygen-bond to the Carbon have to change to a single-bond to maintain that Oxygen only can share to bonds. The Oxygen in the, now former, alcohol group then has a dangling bond, and forms a double-bond with the Carbon. For this to happen the activation energy has to be enough to break both the single-bond and the double-bond. We do not know the activation energy for Quinizarin, and could not examine when this change in structure forms in this project. However, this is interesting to study for another project. \\
+
+    Table (\ref{tab:TOTENquinizarin}) shows the total energies before and after the relax computation. The total energy after relax is less than before, which is in accordance to that a relaxing computation should make the structure more stable, implying a smaller total energy. The relative energy difference is $-0.015$ eV. \\
+
+    \textbf{\textit{DENSITY OF STATES OG BAND GAP}} \\
+
+    As for the change in the structure before and after relaxation, the charge density has also not changed much. Figure (\ref{fig:basic_staticbefore_CHGCAR}) and Figure (\ref{fig:basic_staticafter_CHGCAR}) displays the charge density for before relax and after relax, respectively. Table (\ref{tab:neighborquinizarin}) shows that the Hydrogen-atoms move some, but this is not possible to see in the charge density figures either.
+
 
 
   \subsection{Quinizarin with Yttrium}
 
-    \textbf{\textit{MANGLER TEKST}}
+    From relaxing the structure we can see that the atomic distances between the Yttrium and Oxygen atoms decreases. This can both be seen visually in Figure~(\ref{fig:Y_staticbefore_CONTCAR}) and Figure~(\ref{fig:Y_staticafter_CONTCAR}), as well as from the numbers in Table~(\ref{tab:neighborY}). This shows that the initial distances found in ICSD for Ytterbium were not identical for Yttrium. This is good. It was still wise to use 2.32 Å as start distance as the start distance from normal Quinizarin made the molecule explode during ionic relaxation with standard parameters. Another thing to note is how Yttrium is almost in the middle. The initial coordinates also kept Yttrium in the middle, but it is interesting to note how it kept in the middle. It is only 0.01 Å closer to the alcohol-group Oxygen than to the double-bonded Oxygen. This indicates that what used to be double bonds now are single bonds and that both Oxygen's are equally bonded to Yttrium. This is a further step from the resonant structure that was discussed for the normal Quinizarin molecule. \\
+
+    As seen in Table~(\ref{tab:TOTENY}) The energy of Quinizarin with Yttrium after ionic relaxation is lower than before ionic relaxation. This proves that the relaxed structure indeed is relaxed, and shows it being more stable. The relative energy was $-0.109$ eV/atom which shows there was a change, but not a too big one. \\
+
+    The plot over total density of states for Quinizarin with Yttrium shows that there is an orbital at the fermi level. This means that the orbital is half-full which may indicate that Quinizarin has an unpaired electron spin, making the molecule weakly paramagnetic. \\
+
+    The band gap was reported to be $0.029$ eV as shown in Table~(\ref{tab:bandgapY}). This is very small and less trustworthy than looking at the density of states.
+
+
+
 
 
   \subsection{Quinizarin with Ytterbium}
 
-    \textbf{\textit{MANGLER TEKST}}
+
+
+
+
+
 
 
   \subsection{Quinizarin with Neodymium and Thulium}
 
     \textbf{\textit{MANGLER TEKST}}
 
+    We attempted to perform relaxation and evaluation of Quinizarin with Neodymium and Thulim as well. Initially we attempted with the relaxed Hydrogen-system as POSCAR for these atoms, but the distance was way to low. This resulted in an explosion of the molecule a lack of relaxation. We then tried to relax with more electronic steps, but this did not help. This was also the case for Y and Yb initially. After using around 2.3 Å as distance (after looking at various solid structures on ICSD) we managed to get a relaxed structure for Y and Yb. However, this was not the case for Nd and Tm. We then tried to increase the amount of electronic steps, NELM, to 300, without success. We cross-checked some Nd-structures on ICSD, but 2.3 Å seemed reasonable to use. After a final attempt with IBRION=2 and POTIM=0.2 we hoped for a better result. This was not the case, as after 3 hours it still had not converged. We weighed our options of either increasing the maximum time, or to stop trying with Nd and Tm. After a talk with our supervisors we decided to only report for Y and Yb.
+
 
   \subsection{Total comparison}
 
     \textbf{\textit{MANGLER TEKST}}
+
+    \begin{enumerate}
+        \item Atom distances
+        \item Total and Relative energies
+        \item change in band gap and location of band gap
+        \item change in DOS
+        \item compare electronegativity between the atoms
+    \end{enumerate}
 
 
 
