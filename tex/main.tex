@@ -633,7 +633,7 @@ And then later you can call:
 
     \subsubsection{Total and relative energies}
 
-      See Table~(\ref{tab:TOTENYb}) for a table comparing the total energies of the static VASP calculations of Quinizarin with Ytterbium. The relative energy was 0.013 eV difference. \\
+      See Table~(\ref{tab:TOTENYb}) for a table comparing the total energies of the static VASP calculations of Quinizarin with Ytterbium. The relative energy was $-0.013$ eV difference. \\
 
       \begin{table}[H]
         \centering
@@ -768,30 +768,34 @@ And then later you can call:
 
     Table (\ref{tab:TOTENquinizarin}) shows the total energies before and after the relax computation. The total energy after relax is less than before, which is in accordance to that a relaxing computation should make the structure more stable, implying a smaller total energy. The relative energy difference is $-0.015$ eV. \\
 
-    \textbf{\textit{DENSITY OF STATES OG BAND GAP}} \\
+    The total density of states shows that there are no half-filled bands, as the fermi level is not inside a band / an orbital. This indicates a lack of unpaired electrons and could tell us that it is diamagnetic. Figure~(\ref{fig:basic_TDOS_2}) also shows that further up there are a lot of orbitals connected which means a broad band that can absorb a lot of different photon energies. This is important for a sensitizer to be able to absort many wavelengths so this is good. \\
 
-    As for the change in the structure before and after relaxation, the charge density has also not changed much. Figure (\ref{fig:basic_staticbefore_CHGCAR}) and Figure (\ref{fig:basic_staticafter_CHGCAR}) displays the charge density for before relax and after relax, respectively. Table (\ref{tab:neighborquinizarin}) shows that the Hydrogen-atoms move some, but this is not possible to see in the charge density figures either.
+    In Figure~(\ref{fig:basic_TDOS_2}) we see a band gap from approximately $-0.25$ eV to $1$ eV (scaled to the fermi level). Looking in EIGENVAL we can see a fully occupied band at $-5.31$ eV to a completely empty band at $-3.72$ eV. This corresponds to a band gap of $1.59$ eV, which is not completely in agreement with the figure of DOS, but also not that far off. A band gap of $1.59$ eV is a semiconductor. This size of band gap means it is quite unlikely for an incoming photon to be re-emitted as phonon vibrations. It will more likely be re-emitted as a photon or, in an up-conversion, be led into the system it self. This is good, and indicates that Quinizarin will not quench any incoming photons. \\
 
+    As for the change in the structure before and after relaxation, the charge density has also not changed much. Figure (\ref{fig:basic_staticbefore_CHGCAR}) and Figure (\ref{fig:basic_staticafter_CHGCAR}) displays the charge density for before relax and after relax, respectively. Table (\ref{tab:neighborquinizarin}) shows that the Hydrogen-atoms move some, but this is not possible to see in the charge density figures either. \\
 
-
-  \subsection{Quinizarin with Yttrium}
+  \subsection{Quinizarin with Yttrium}  \label{sec:discussionY}
 
     From relaxing the structure we can see that the atomic distances between the Yttrium and Oxygen atoms decreases. This can both be seen visually in Figure~(\ref{fig:Y_staticbefore_CONTCAR}) and Figure~(\ref{fig:Y_staticafter_CONTCAR}), as well as from the numbers in Table~(\ref{tab:neighborY}). This shows that the initial distances found in ICSD for Ytterbium were not identical for Yttrium. This is good. It was still wise to use 2.32 Å as start distance as the start distance from normal Quinizarin made the molecule explode during ionic relaxation with standard parameters. Another thing to note is how Yttrium is almost in the middle. The initial coordinates also kept Yttrium in the middle, but it is interesting to note how it kept in the middle. It is only 0.01 Å closer to the alcohol-group Oxygen than to the double-bonded Oxygen. This indicates that what used to be double bonds now are single bonds and that both Oxygen's are equally bonded to Yttrium. This is a further step from the resonant structure that was discussed for the normal Quinizarin molecule. \\
 
-    As seen in Table~(\ref{tab:TOTENY}) The energy of Quinizarin with Yttrium after ionic relaxation is lower than before ionic relaxation. This proves that the relaxed structure indeed is relaxed, and shows it being more stable. The relative energy was $-0.109$ eV/atom which shows there was a change, but not a too big one. \\
+    As seen in Table~(\ref{tab:TOTENY}) The energy of Quinizarin with Yttrium after ionic relaxation is lower than before ionic relaxation. This proves that the relaxed structure indeed is relaxed, and shows it being more stable. The relative energy was $-0.109$ eV/atom which shows there was a change, but not a too big one. When it comes to broad-ness in one or more conduction bands this is not as good as normal Quinizarin. There is a band that goes from around $0.5$ eV  to $1.75$ eV, but then there is a gap before a new one pops in around $1.85$ eV. Still, the bond is fairly wide, and will likely absorb a fairly wide spectrum. \\
 
-    The plot over total density of states for Quinizarin with Yttrium shows that there is an orbital at the fermi level. This means that the orbital is half-full which may indicate that Quinizarin has an unpaired electron spin, making the molecule weakly paramagnetic. \\
+    The plot over total density of states for Quinizarin with Yttrium shows that there is an orbital at the Fermi level. This means that the orbital is half-full which may indicate that Quinizarin has an unpaired electron spin, making the molecule weakly paramagnetic. One thing to note for the local densities of states is that they both look identical. This shows the mirror symmetry of the molecule. \\
 
-    The band gap was reported to be $0.029$ eV as shown in Table~(\ref{tab:bandgapY}). This is very small and less trustworthy than looking at the density of states.
+    The band gap was reported to be $0.029$ eV as shown in Table~(\ref{tab:bandgapY}). This is very small and less trustworthy than looking at the density of states. If we observe the density of states there seems to be a bang gap from around 0.25 to 0.75 eV (scaled to Fermi level. Looking in EIGENVAL from the static calculation after relaxation we can see there is a band gap from -3.57 (100\% occupied) to -2.98 (58.1\% occupied). This is a band gap of 0.59 eV, which corresponds fairly well to the gap found in Figure~(\ref{fig:Y_TDOS_2}). This band gap would correspond with a semiconductor, and from gut instinct will likely rather emit the energy absorbed as a photon rather as phonon vibrations. This is good as phonon vibrations will lead to quenching, reducing the efficiency of the up-conversion system. This tells us that a if Quinizarin is embedded in a matrix of YF3 it will likely not quench absorbed photons, and work well as a sensitizer. \\
 
-
-
+    \textbf{CHARGE DENSITY} \\
 
 
   \subsection{Quinizarin with Ytterbium}
 
+    Quinizarin with Ytterbium has similar results when comparing how the structure changes before and after relax as Quinizarin with Yttrium, seen in Section \nameref{sec:discussionY}. One similarity is that the Ytterbium-atoms are placed in between of the Oxygen in the alcohol group and the double-bonded Oxygen, this is however mostly for comparison. Another similarity is that after relaxing the structure the Ytterbium moves closer towards the molecule, making the bond length, also called the distance to the double-bonded Oxygen and the single-bonded Oxygen, shorter, while still being maintained in the middle. This can all be seen in Figure (\ref{fig:Yb_staticbefore_CONTCAR}), Figure (\ref{fig:Yb_staticafter_CONTCAR}) and Table (\ref{tab:neighborYb}). In fact, the bond length has approximately the same length as the Quinizarin molecule with Yttrium. However, after relax the bond lengths shrink to both Oxygen-atoms. For both Oxygen-atoms, the distance is cirka 2.32 Å before relax and cirka 2.08 Å after relax. The reasoning behind these changes is therefore the same as for Quinizarin with Yttrium, so the reader is referred to this section. \\
 
+    The total energy of the system changes minimally, but it is more net negative after the relax calculation. Table (\ref{tab:TOTENYb}) shows the total energy before and after the relaxation. The relative energy is a $-0.013$ eV difference. Quinizarin with Ytterbium is therefore more stable after relaxation. \\
 
+    Figure~(\ref{fig:Yb_TDOS_2}) shows the density of states for Quinizarin with Ytterbium. Immediately we see that the fermi level is inside a bond which again can indicate unpaired electrons and the molecule being weakly paramagnetic. After around $1.8$ eV there seems to be a very wide band going all the way up to and past $3$ eV. A small dip around $2.5$ eV, but not a complete gap. This is incredibly good as it means the molecule might absorb photons for the whole spectrum of available light. \\
+
+    There seems to be a band gap from around $0.33$ eV to $1.2$ eV. In EIGENVAL we see that there is a fully occupied band at $-3.05$ eV, and the next band is at $2.72$ eV and is $67\%$ occupied. This corresponds to
 
 
 
@@ -801,7 +805,7 @@ And then later you can call:
 
     \textbf{\textit{MANGLER TEKST}}
 
-    We attempted to perform relaxation and evaluation of Quinizarin with Neodymium and Thulim as well. Initially we attempted with the relaxed Hydrogen-system as POSCAR for these atoms, but the distance was way to low. This resulted in an explosion of the molecule a lack of relaxation. We then tried to relax with more electronic steps, but this did not help. This was also the case for Y and Yb initially. After using around 2.3 Å as distance (after looking at various solid structures on ICSD) we managed to get a relaxed structure for Y and Yb. However, this was not the case for Nd and Tm. We then tried to increase the amount of electronic steps, NELM, to 300, without success. We cross-checked some Nd-structures on ICSD, but 2.3 Å seemed reasonable to use. After a final attempt with IBRION=2 and POTIM=0.2 we hoped for a better result. This was not the case, as after 3 hours it still had not converged. We weighed our options of either increasing the maximum time, or to stop trying with Nd and Tm. After a talk with our supervisors we decided to only report for Y and Yb.
+    We attempted to perform relaxation and evaluation of Quinizarin with Neodymium and Thulim as well. Initially we attempted with the relaxed Hydrogen-system as POSCAR for these atoms, but the distance was way to low. This resulted in an explosion of the molecule a lack of relaxation. We then tried to relax with more electronic steps, but this did not help. This was also the case for Y and Yb initially. After using around 2.3 Å as distance (after looking at various solid structures on ICSD) we managed to get a relaxed structure for Y and Yb. However, this was not the case for Nd and Tm. We then tried to increase the amount of electronic steps, NELM, to 300, without success. We cross-checked some Nd-structures on ICSD, but 2.3 Å seemed reasonable to use. After a final attempt with IBRION=2 and POTIM=0.2 we hoped for a better result. This was not the case, as after 3 hours it still had not converged. We weighed our options of either increasing the maximum time, or to stop trying with Nd and Tm. After a talk with our supervisors we decided to only report for Y and Yb. \\
 
 
   \subsection{Total comparison}
